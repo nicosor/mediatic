@@ -10,6 +10,6 @@ public class MediaticApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MediaticApplication.class, args);
+        System.out.println("coucou");
     }
-
 }
