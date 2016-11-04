@@ -7,3 +7,7 @@ target/
 .project
 
 .DS_Store
+
+ui/maquette/css
+ui/maquette/fonts
+ui/maquette/js
