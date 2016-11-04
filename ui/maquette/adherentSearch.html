@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Recherche Adhérent</title>
+	<meta charset="UTF-8">
+	<title>Recherche Adhérent</title>
 
-<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-<link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css">
-<script
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css">
+	<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/bootstrap.js"></script>
+	<script src="js/bootstrap.js"></script>
 
 </head>
 <body>
@@ -19,7 +19,7 @@
 	<div>
 		<input type="number" name="identifier" placeholder="Identifiant">
 		<input type="text" name="name" placeholder="Nom"> <input
-			type="text" name="surname" placeholder="Prénom">
+		type="text" name="surname" placeholder="Prénom">
 	</div>
 	<div class="row">
 		<div class="col-lg-6">
@@ -27,9 +27,69 @@
 			<div>Ici ya un tableau</div>
 			<hr>
 			<div>
-				<input type="button" value="Ajouter" style="float: right"></input>
+				<input type="button" value="Ajouter" style="float: right" data-toggle="modal" data-target="#myModal"></input>
 			</div>
 		</div>
 	</div>
+
+
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog" >
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h2 class="modal-title">Nouveau adhérent</h2>
+				</div>
+				<div class="modal-body">
+					<div class="row form-group">
+						<input type="text" name="Nom" placeholder="Nom" class="col-md-4 col-md-offset-1">
+						<input type="text" name="Prenom" placeholder="Prenom" class="col-md-4 col-md-offset-1">
+					</div>
+
+					<div class="row form-group">
+						<div class="col-md-10">
+							<span class="col-md-5"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date de naissance :</p></span>
+							<input type="date" name="DateNAissance" class="col-md-4">
+						</div>
+					</div>
+
+					<div class="row form-group">
+						<input type="mail" name="Email" placeholder="Mail" class="col-md-5 col-md-offset-1">
+					</div>
+
+					<div class="row form-group">
+						<input type="text" name="Adresse" placeholder="Adresse" class="col-md-5 col-md-offset-1">
+					</div>
+
+					<div class="row form-group">
+						<input type="text" name="CP" placeholder="Code postal" class="col-md-3 col-md-offset-1">
+						<input type="text" name="Ville" placeholder="Ville" class="col-md-4 col-md-offset-1">
+					</div>
+
+					<div class="row form-group">
+						<div class="col-md-12">
+							<span class="col-md-4 col-md-offset-0"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date cotisation :</p></span>
+							<input type="date" name="DateCotisation" class="col-md-4">
+							<div class="col-md-4">
+								<i class="glyphicon glyphicon-euro " style="padding-top:4px;"></i>
+								<input type="number" name="Montant" placeholder="Montant" class="col-md-9 col-md-offset-1">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default col-md-3 col-md-offset-5" data-dismiss="modal">Valider</button>
+					<button type="button" class="btn btn-default col-md-3 col-md-offset-1" data-dismiss="modal">Annuler</button>
+				</div>
+			</div>
+			
+		</div>
+
+	</div>
+</div>
 </body>
 </html>
