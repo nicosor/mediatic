@@ -58,22 +58,34 @@
 	.tata {
 		height : 180px;
 	}
+	
+	.col-md-5 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 0px;
+    padding-left: 0px;
+	}
+	
+	.row {
+    margin-right: 0px;
+    margin-left: 0px;
+	}
 </style>
 <script>
 	$(function(){
-			$('#validateAdherent').click(function() {
-				$('#modifyAdherent').removeClass('moins');
-				$('#readOnly').removeClass('moins');
-			})
-			$('#cancelAdherent').click(function() {
-				$('#modifyAdherent').removeClass('moins');
-				$('#readOnly').removeClass('moins');
-			})
-			
-			$('#modifyAdherentButton').click(function() {
-				$('#modifyAdherent').addClass('moins');
-				$('#readOnly').addClass('moins');
-			})
+		$('#validateAdherent').click(function() {
+			$('#modifyAdherent').removeClass('moins');
+			$('#readOnly').removeClass('moins');
+		})
+		$('#cancelAdherent').click(function() {
+			$('#modifyAdherent').removeClass('moins');
+			$('#readOnly').removeClass('moins');
+		})
+		
+		$('#modifyAdherentButton').click(function() {
+			$('#modifyAdherent').addClass('moins');
+			$('#readOnly').addClass('moins');
+		})
 	})
 </script>
 </head>
@@ -112,7 +124,7 @@
 				<button type="button" id="modifyAdherentButton">Modifier</button>
 			</div>
 			<div class="col-md-6 divRight">
-				<button type="button">Ajouter un emprunt</button>
+				<button type="button" data-toggle="modal" data-target="#myModal">Ajouter un emprunt</button>
 			</div>
 		</div>
 		
@@ -468,5 +480,32 @@
 		}
 	})
 	</script>
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content col-md-9 col-md-offset-1">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h2 class="modal-title">Nouvel emprunt</h2>
+				</div>
+				<div class="modal-body">
+					<div class="row form-group">
+						<input type="text" name="titre" placeholder="Titre" class="col-md-6">
+					</div>
+					<div class="row">
+						<span class="col-md-5">Date de l'emprunt :</span>
+						<input type="date" name="dateEmprunt" class="col-md-6">
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default col-md-3 col-md-offset-5" data-dismiss="modal">Valider</button>
+					<button type="button" class="btn btn-default col-md-3 col-md-offset-1" data-dismiss="modal">Annuler</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </body>
 </html>
