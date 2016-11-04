@@ -8,24 +8,382 @@
 	<link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css">
 	<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.js"></script>
+<link rel="stylesheet" href="./css/cssMenu.css" type="text/css">
+<style>
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+.div {
+	height: 500px;
+	overflow-y: auto;
+}
+
+table {
+	height: 100%;
+}
+
+tr:nth-child(even) {
+	background-color: silver;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+</style>
 
 </head>
 <body>
 	<header>
-		<h1>Adhérent</h1>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li><a href="ui/maquette/media.html">Médias</a></li><!--
+					--><li><a href="ui/maquette/adherent.html">Adhérents</a></li><!--
+					--><li style="float: right"><a class="active" href="ui/maquette/login.html">Déconnexion</a></li>
+				</ul>
+			</div>
+		</nav>
 	</header>
-
 	<div>
-		<input type="number" name="identifier" placeholder="Identifiant">
-		<input type="text" name="name" placeholder="Nom"> <input
-		type="text" name="surname" placeholder="Prénom">
+		<h1 style="text-align: center">Adhérents</h1>
 	</div>
-	<div class="row">
-		<div class="col-lg-6">
-			<hr>
-			<div>Ici ya un tableau</div>
-			<hr>
+
+	<div class="col-sm-offset-2 col-sm-8">
+		<div class="form-group row">
+			<input type="number" name="identifier" placeholder="Identifiant" class="col-sm-2">
+			<input type="text" name="name" placeholder="Nom" class="col-sm-offset-1 col-sm-4"> 
+			<input type="text" name="surname" placeholder="Prénom" class="col-sm-offset-1 col-sm-4">
+		</div>
+			<div class="row">
+				<div class="col-sm-12 div">
+					<table class="table">
+						<tr>
+							<th><span class="col-xs-10">Identifiant</span> <span id="spanTriTitre" class="glyphicon glyphicon-sort col-xs-1"></span></th>
+							<th><span class="col-xs-10">Nom Prénom</span> <span id="spanTriDateEmprunt" class="glyphicon glyphicon-sort col-xs-1"></span></th>
+							<th><span class="col-xs-10">Date de Naissance</span> <span id="spanTriDateRetour" class="glyphicon glyphicon-sort col-xs-1"></span></th>
+							<th><span class="col-xs-10">Cotisation</span> <span id="spanTriDateRetour" class="glyphicon glyphicon-sort col-xs-1"></span></th>
+							<th><span class="col-xs-10">Emprunts</span> <span id="spanTriDateRetour" class="glyphicon glyphicon-sort col-xs-1"></span></th>
+						</tr>
+						<tr>
+							<td>QSD456F8</td>
+							<td>Soriano Nicolas</td>
+							<td>04/11/2016</td>
+							<td><span class="glyphicon glyphicon-ok-circle" style="color:green"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>TYU963Z1</td>
+							<td>Christ Nicolas</td>
+							<td>21/07/1987</td>
+							<td><span class="glyphicon glyphicon-ban-circle" style="color:red"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>FGH123A6</td>
+							<td>Burgain Pierre</td>
+							<td>04/11/2016</td>
+							<td><span class="glyphicon glyphicon-ban-circle" style="color:red"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>AZE789D9</td>
+							<td>Robes Pierre</td>
+							<td>12/08/1994</td>
+							<td><span class="glyphicon glyphicon-ok-circle" style="color:green"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>QSD456F8</td>
+							<td>Soriano Nicolas</td>
+							<td>04/11/2016</td>
+							<td><span class="glyphicon glyphicon-ok-circle" style="color:green"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>TYU963Z1</td>
+							<td>Christ Nicolas</td>
+							<td>21/07/1987</td>
+							<td><span class="glyphicon glyphicon-ban-circle" style="color:red"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>FGH123A6</td>
+							<td>Burgain Pierre</td>
+							<td>04/11/2016</td>
+							<td><span class="glyphicon glyphicon-ban-circle" style="color:red"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>AZE789D9</td>
+							<td>Robes Pierre</td>
+							<td>12/08/1994</td>
+							<td><span class="glyphicon glyphicon-ok-circle" style="color:green"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>QSD456F8</td>
+							<td>Soriano Nicolas</td>
+							<td>04/11/2016</td>
+							<td><span class="glyphicon glyphicon-ok-circle" style="color:green"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>TYU963Z1</td>
+							<td>Christ Nicolas</td>
+							<td>21/07/1987</td>
+							<td><span class="glyphicon glyphicon-ban-circle" style="color:red"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>FGH123A6</td>
+							<td>Burgain Pierre</td>
+							<td>04/11/2016</td>
+							<td><span class="glyphicon glyphicon-ban-circle" style="color:red"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>AZE789D9</td>
+							<td>Robes Pierre</td>
+							<td>12/08/1994</td>
+							<td><span class="glyphicon glyphicon-ok-circle" style="color:green"></span></td>
+							<td>5</td>
+						</tr><tr>
+							<td>QSD456F8</td>
+							<td>Soriano Nicolas</td>
+							<td>04/11/2016</td>
+							<td><span class="glyphicon glyphicon-ok-circle" style="color:green"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>TYU963Z1</td>
+							<td>Christ Nicolas</td>
+							<td>21/07/1987</td>
+							<td><span class="glyphicon glyphicon-ban-circle" style="color:red"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>FGH123A6</td>
+							<td>Burgain Pierre</td>
+							<td>04/11/2016</td>
+							<td><span class="glyphicon glyphicon-ban-circle" style="color:red"></span></td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>AZE789D9</td>
+							<td>Robes Pierre</td>
+							<td>12/08/1994</td>
+							<td><span class="glyphicon glyphicon-ok-circle" style="color:green"></span></td>
+							<td>5</td>
+						</tr>
+							
+					</table>
+				</div>
+				<div class="col-xs-1"></div>
+				<script>
+					$('.glyphicon')
+							.click(
+									function() {
+										console.log("test");
+										var id = $(this).attr('id');
+
+										if (!$(this).hasClass(
+												'glyphicon-sort-by-alphabet')) {
+											if (id == 'spanTriTitre') {
+												console
+														.log('saluftcghfcthrdtytrt');
+												$('#spanTriTitre')
+														.addClass(
+																'glyphicon-sort-by-alphabet')
+												$('#spanTriDateEmprunt')
+														.addClass(
+																'glyphicon-sort');
+												$('#spanTriDateRetour')
+														.addClass(
+																'glyphicon-sort');
+
+												$('#spanTriTitre').removeClass(
+														'glyphicon-sort')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort-by-alphabet');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort-by-alphabet');
+
+												$('#spanTriTitre')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt');
+											} else if (id == 'spanTriDateEmprunt') {
+
+												$('#spanTriTitre').addClass(
+														'glyphicon-sort');
+												$('#spanTriDateEmprunt')
+														.addClass(
+																'glyphicon-sort-by-alphabet');
+												$('#spanTriDateRetour')
+														.addClass(
+																'glyphicon-sort');
+
+												$('#spanTriTitre')
+														.removeClass(
+																'glyphicon-sort-by-alphabet')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort-by-alphabet');
+
+												$('#spanTriTitre')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt');
+											} else {
+
+												$('#spanTriTitre').addClass(
+														'glyphicon-sort');
+												$('#spanTriDateEmprunt')
+														.addClass(
+																'glyphicon-sort');
+												$('#spanTriDateRetour')
+														.addClass(
+																'glyphicon-sort-by-alphabet');
+
+												$('#spanTriTitre')
+														.removeClass(
+																'glyphicon-sort-by-alphabet')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort-by-alphabet');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort');
+
+												$('#spanTriTitre')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt');
+											}
+										} else {
+											if (id == 'spanTriTitre') {
+												console.log('salut 2');
+												$('#spanTriTitre')
+														.addClass(
+																'glyphicon-sort-by-alphabet-alt')
+												$('#spanTriDateEmprunt')
+														.addClass(
+																'glyphicon-sort');
+												$('#spanTriDateRetour')
+														.addClass(
+																'glyphicon-sort');
+
+												$('#spanTriTitre').removeClass(
+														'glyphicon-sort')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt');
+
+												$('#spanTriTitre')
+														.removeClass(
+																'glyphicon-sort-by-alphabet')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort-by-alphabet');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort-by-alphabet');
+											} else if (id == 'spanTriDateEmprunt') {
+
+												$('#spanTriTitre').addClass(
+														'glyphicon-sort');
+												$('#spanTriDateEmprunt')
+														.addClass(
+																'glyphicon-sort-by-alphabet-alt');
+												$('#spanTriDateRetour')
+														.addClass(
+																'glyphicon-sort');
+
+												$('#spanTriTitre')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt');
+
+												$('#spanTriTitre')
+														.removeClass(
+																'glyphicon-sort-by-alphabet')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort-by-alphabet');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort-by-alphabet');
+											} else {
+
+												$('#spanTriTitre').addClass(
+														'glyphicon-sort');
+												$('#spanTriDateEmprunt')
+														.addClass(
+																'glyphicon-sort');
+												$('#spanTriDateRetour')
+														.addClass(
+																'glyphicon-sort-by-alphabet-alt');
+
+												$('#spanTriTitre')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort-by-alphabet-alt');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort');
+
+												$('#spanTriTitre')
+														.removeClass(
+																'glyphicon-sort-by-alphabet')
+												$('#spanTriDateEmprunt')
+														.removeClass(
+																'glyphicon-sort-by-alphabet');
+												$('#spanTriDateRetour')
+														.removeClass(
+																'glyphicon-sort-by-alphabet');
+											}
+										}
+									})
+				</script>
+		</div>
+		<div class="row">
+		<br>
 			<div>
 				<input type="button" value="Ajouter" style="float: right" data-toggle="modal" data-target="#myModal"></input>
 			</div>
