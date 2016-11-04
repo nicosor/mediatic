@@ -25,3 +25,35 @@ li a:hover:not(.active) {
 .active {
     background-color: #800080;
 }
+
+body .navbar-brand, .navbar-nav > li > a {
+    text-shadow: 0 0 0 rgb(0,0,0);
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: silver;
+    background-color: black;
+}
+
+body .navbar-default .navbar-nav > li > a {
+    color: silver;
+}
+
+.navbar-nav {
+    float: none;
+    margin: 0;
+}
+
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 0px solid transparent;
+}
