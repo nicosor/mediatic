@@ -5,7 +5,7 @@ body
 
 #centre
 {
-	margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+	margin-top: 30vh; /* poussé de la moitié de hauteur de viewport */
 	transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 	outline-style : solid ;
 }
@@ -13,4 +13,10 @@ body
 #espace
 {
 	padding : 20%;
+}
+
+h1
+{
+	font-size : 300%;
+	color : pink;
 }
