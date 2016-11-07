@@ -24,3 +24,8 @@ tr:nth-child(even)
 {
 	background-color: silver;
 }
+
+div#noPadding
+{
+	padding-right : 0;
+}
