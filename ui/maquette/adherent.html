@@ -43,7 +43,7 @@
 		padding-right : 0;;
 	}
 	
-	.noPaddingLeft {
+	.paddingLeft {
 		padding-left : 5px;
 	}
 	
@@ -105,62 +105,63 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="row">
-		<h1 class="col-md-4 col-md-offset-5">Fiche adhérent</h1>
+	
+	<div class="form-group row">
+		<h1 style="text-align: center">Fiche adhérent</h1>
 	</div>
 	<br />
 	<div class="col-md-offset-2 col-md-8 mainDivRight">
 		<div id="readOnly">
 			<div class="row rowText">
-				<span class="col-md-2 noPaddingLeft">Nom : Soriano</span>
-				<span class="col-md-2">Prénom : Nicolas</span>
+				<span class="col-md-2 paddingLeft">Nom : Soriano</span>
+				<span>Prénom : Nicolas</span>
 			</div>
 			<div class="row rowText">
-				<span class="noPaddingLeft">Date de naissance : 22/10/1991</span>
+				<span class="paddingLeft">Date de naissance : 22/10/1991</span>
 			</div>
 			<div class="row rowText">
-				<span class="noPaddingLeft">E-mail : nico.sor@free.fr</span>
+				<span class="paddingLeft">E-mail : nico.sor@free.fr</span>
 			</div>
 			<div class="row rowText">
-				<span class="noPaddingLeft">Adresse : 27 allée des chênes 33380 Marcheprime</span>
+				<span class="paddingLeft">Adresse : 27 allée des chênes 33380 Marcheprime</span>
 			</div>
 			<div class="row rowText">
-				<span class="noPaddingLeft">Date de cotisation : 03/11/2016  Montant : 9.999€</span>
+				<span class="paddingLeft">Date de cotisation : 03/11/2016  Montant : 9.999€</span>
 			</div>
-			<div class="col-md-6 divLeft">
+			<div class="col-md-6 col-xs-6 divLeft">
 				<button type="button" class="btn btn-default" id="modifyAdherentButton">Modifier</button>
 			</div>
 
-			<div class="divRight">
+			<div class="col-md-6 col-xs-6 divRight">
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un emprunt</button>
 			</div>
 		</div>
 		
 		<div id="modifyAdherent">
 			<div class="row rowInput">
-				<input class="noPaddingLeft" type="text" name="name" placeholder="Nom">
-				<input class="noPaddingLeft" type="text" name="firstName" placeholder="Prénom"><br />
+				<input class="paddingLeft" type="text" name="name" placeholder="Nom">
+				<input class="paddingLeft" type="text" name="firstName" placeholder="Prénom"><br />
 			</div>
 			<div class="row rowInput">
-				Date de naissance : <input class="noPaddingLeft" type="date" name="birthDate">
+				Date de naissance : <input class="paddingLeft" type="date" name="birthDate">
 			</div>
 			<div class="row rowInput">
-				<input class="noPaddingLeft" type="email" name="email" placeholder="E-mail">
+				<input class="paddingLeft" type="email" name="email" placeholder="E-mail">
 			</div>
 			<div class="row rowInput">
-				<input class="noPaddingLeft" type="text" name="adresse" placeholder="Adresse">
-					<input class="noPaddingLeft" type="text" name="CP" placeholder="Code Postal">
-					<input class="noPaddingLeft" type="text" name="ville" placeholder="Ville">
+				<input class="paddingLeft" type="text" name="adresse" placeholder="Adresse">
+					<input class="paddingLeft" type="text" name="CP" placeholder="Code Postal">
+					<input class="paddingLeft" type="text" name="ville" placeholder="Ville">
 			</div>
 			<div class="row rowInput">
-				Date de cotisation : <input class="noPaddingLeft" type="date" name="subscriptionDate">
-				<input class="noPaddingLeft" type="number" name="surbscriptionFee" placeholder="Cotisation">
+				Date de cotisation : <input class="paddingLeft" type="date" name="subscriptionDate">
+				<input class="paddingLeft" type="number" name="surbscriptionFee" placeholder="Cotisation">
 			</div>
-			<div class="col-md-6 divLeft">
+			<div class="col-md-6 col-xs-6 divLeft">
 				<button type="button" class="btn btn-default" id="validateAdherent">Valider</button>
 				<button type="button" class="btn btn-default" id="cancelAdherent">Annuler</button>
 			</div>
-			<div class="col-md-6 divRight">
+			<div class="col-md-6 col-xs-6 divRight">
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un emprunt</button>
 			</div>
 		</div>
@@ -501,11 +502,11 @@
 				</div>
 				<div class="modal-body">
 					<div class="row form-group">
-						<input type="text" name="titre" placeholder="Titre" class="col-md-6 noPaddingLeft">
+						<input type="text" name="titre" placeholder="Titre" class="col-md-6 paddingLeft">
 					</div>
 					<div class="row">
 						<span class="col-md-5 spanDate">Date de l'emprunt :</span>
-						<input type="date" name="dateEmprunt" class="col-md-6 noPaddingLeft">
+						<input type="date" name="dateEmprunt" class="col-md-6 paddingLeft">
 						</div>
 				</div>
 				<div class="modal-footer ">
