@@ -26,6 +26,10 @@ li a:hover:not(.active) {
     background-color: #800080;
 }
 
+.actif {
+	background-color: #ff0080;
+}
+
 body .navbar-brand, .navbar-nav > li > a {
     text-shadow: 0 0 0 rgb(0,0,0);
 }
