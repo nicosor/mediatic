@@ -1,20 +1,20 @@
 $(function()
 {
-	$('#validateAdherent').click(function()
+	$('#validateMedia').click(function()
 	{
-		$('#modifyAdherent').removeClass('moins');
+		$('#modifyMedia').removeClass('moins');
 		$('#readOnly').removeClass('moins');
 	})
 	
-	$('#cancelAdherent').click(function()
+	$('#cancelMedia').click(function()
 	{
-		$('#modifyAdherent').removeClass('moins');
+		$('#modifyMedia').removeClass('moins');
 		$('#readOnly').removeClass('moins');
 	})
 			
-	$('#modifyAdherentButton').click(function()
+	$('#modifyMediaButton').click(function()
 	{
-		$('#modifyAdherent').addClass('moins');
+		$('#modifyMedia').addClass('moins');
 		$('#readOnly').addClass('moins');
 	})
 })
