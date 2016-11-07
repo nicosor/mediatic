@@ -1,7 +1,12 @@
 #readOnly.moins,
-	#modifyAdherent:not(.moins)
+	#modifyMedia:not(.moins)
 {
 	display : none;
+}
+
+input.padding
+{
+	padding-left : 5px ;
 }
 
 .div
@@ -18,4 +23,9 @@ table
 tr:nth-child(even)
 {
 	background-color: silver;
+}
+
+div#noPadding
+{
+	padding-right : 0;
 }

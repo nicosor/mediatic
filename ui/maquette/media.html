@@ -26,87 +26,83 @@
 		</div>
 	</nav>
 	<header>
-		<div class="container-fluid">
+		<div class="container-fluid form-group">
 			<div class="row">
-				<div class="col-xs-12 text-center">
+				<div class="form-group col-sm-12 text-center">
 					<h1>Fiche Media</h1>
 				</div>
-			</div>
+			</div>	
+			<br>
 		</div>
 	</header>
-	<div class="col-xs-offset-1 col-xs-10">
+	<div class="col-sm-offset-2 col-sm-8 form-group">
 		<div id="readOnly">
 			<form class="form-horizontal">
 				<div class="form-group">
-					<div class="col-xs-3">Titre : Deadpool</div>
-					<div class="col-xs-3">Auteur : Rob Liefeld</div>
+					<div class="col-sm-4">Titre : Deadpool</div>
+					<div class="col-sm-4">Auteur : Rob Liefeld</div>
+					<div class="col-sm-4">Type : livre</div>
 				</div>
 				<div class="form-group">
-					<div class="col-xs-12">Type : livre</div>
-				</div>
-				<div class="form-group">
-					<div class="col-xs-6">
-						<button type="button" class="btn btn-default" id="modifyAdherentButton">Modifier</button>
+					<div class="col-sm-6">
+						<button type="button" class="btn btn-default" id="modifyMediaButton">Modifier</button>
 					</div>
-					<div class="col-xs-6 text-right">
+					<div class="col-sm-6 text-right" id="noPadding">
 						<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un prêt</button>
 					</div>
 				</div>
 			</form>
 		</div>
-		
-		<div id="modifyAdherent">
+		<div id="modifyMedia">
 			<form class="form-horizontal">
 				<div class="form-group">
-					<div class="col-xs-3">
-						<input type="text" placeholder="Titre">
+					<div class="col-sm-4">
+						<input type="text" class="form-control padding" placeholder="Titre">
 					</div>
-					<div class="col-xs-3">
-					<input type="text" placeholder="Auteur">
+					<div class="col-sm-4">
+						<input type="text" class="form-control padding" placeholder="Auteur">
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="dropdown col-xs-12">
-					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-					    Type
-					    <span class="caret"></span>
-					  </button>
-					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-					    <li><a href="#">Livre</a></li>
-					    <li><a href="#">CD</a></li>
-					    <li><a href="#">DVD</a></li>
-					  </ul>
+					<div class="col-sm-4">
+					  <select class="form-control">
+					  	<option selected disabled>Type</option>
+					    <option>Livre</option>
+					    <option>CD</option>
+					    <option>DVD</option>
+					  </select>
 					</div>
 				</div>
+				<div class="form-group">	
+				</div>
 				<div class="form-group">
-					<div class="col-xs-12">
-						<button type="button" class="btn btn-default" id="validateAdherent">Valider</button>
-						<button type="button" class="btn btn-default" id="cancelAdherent">Annuler</button>
+					<div class="col-sm-12">
+						<button type="button" class="btn btn-default" id="validateMedia">Valider</button>
+						<button type="button" class="btn btn-default" id="cancelMedia">Annuler</button>
 					</div>
 				</div>
 			</form>
 		</div>
+		<br>
 	</div>
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   		<div class="modal-dialog" role="document">
-   			 <div class="modal-content col-xs-8">
+   			 <div class="modal-content col-sm-8 col-sm-offset-2">
       			<div class="modal-header">
         			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        				<h4 class="modal-title" id="myModalLabel">Ajouter un prêt</h4>
+        				<h2 class="modal-title" id="myModalLabel">Nouveau prêt</h2>
      			</div>
       			<div class="modal-body">
       				<form class="form-horizontal">
 						<div class="form-group">
-							<div class="col-xs-9">
-								<input type="text" placeholder="Nom adherent">
+							<div class="col-sm-12">
+								<input type="text" class="form-control padding" placeholder="Nom adherent">
 							</div>
 						</div>
 						<div class="form-group">
-						<div class="col-xs-5">
+						<div class="col-sm-5">
 							Date de l'emprunt
 						</div>
-							<div class="col-xs-4">
-								<input type="date">
+							<div class="col-sm-7">
+								<input type="date" class="form-control padding">
 							</div>
 						</div>
 					</form>
@@ -118,12 +114,12 @@
     		</div>
  		 </div>
 	</div>
-	<div class="col-xs-offset-1 col-xs-10 div">
+	<div class="col-sm-offset-2 col-sm-8 div">
 		<table class="table">
 		   <tr>
-		      <th ><span class="col-xs-10">Titre</span> <span id="spanTriTitre" class="glyphicon glyphicon-sort col-xs-1"></span></th>
-		      <th><span class="col-xs-10">Date Emprunt</span> <span id="spanTriDateEmprunt" class="glyphicon glyphicon-sort col-xs-1"></span></th>
-		      <th><span class="col-xs-10">Date retour</span> <span id="spanTriDateRetour" class="glyphicon glyphicon-sort col-xs-1"></span></th>
+		      <th ><span class="col-sm-10">Titre</span> <span id="spanTriTitre" class="glyphicon glyphicon-sort col-sm-1"></span></th>
+		      <th><span class="col-sm-10">Date Emprunt</span> <span id="spanTriDateEmprunt" class="glyphicon glyphicon-sort col-sm-1"></span></th>
+		      <th><span class="col-sm-10">Date retour</span> <span id="spanTriDateRetour" class="glyphicon glyphicon-sort col-sm-1"></span></th>
 		   </tr>
 		   <tr>
 		      <td>LOT</td>
@@ -347,7 +343,7 @@
 		   </tr>
 		</table>
 	</div>
-	<div class="col-xs-1">
+	<div class="col-sm-1">
 	</div>
 </body>
 </html>
