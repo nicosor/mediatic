@@ -19,6 +19,10 @@
 		padding-left:15px;
 	}
 
+	input.noPaddingLeft {
+		padding-left : 5px;
+	}
+
 	</style> 
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
@@ -41,25 +45,26 @@
 		</div>
 	</nav>
 	<div class="form-group row">
-		<h1 class="col-xs-4 col-xs-offset-5"> Recherche Media</h1>
+		<h1 class="col-sm-4 col-sm-offset-5"> Recherche Media</h1>
 	</div>
-
-	<div class="form-group row" id="chieur">
-		<input type="text" name="Titre" placeholder="Titre" class="col-xs-3 col-xs-offset-1">
-		<input type="text" name="Auteur" placeholder="Auteur" class="col-xs-3 col-xs-offset-1">
-		<select name="Type" class="col-xs-2 col-xs-offset-1">
+	<br>
+	<div class="form-group row noPaddingLeft" id="chieur">
+		<input type="text" name="Titre" placeholder="Titre" class="col-sm-2 col-sm-offset-2 noPaddingLeft">
+		<input type="text" name="Auteur" placeholder="Auteur" class="col-sm-3 col-sm-offset-1 noPaddingLeft">
+		<select name="Type" class="col-sm-1 col-sm-offset-1">
 			<option value="Livre">Livre</option>
 			<option value="CD">CD</option>
 			<option value="DVD">DVD</option>
 		</select>
 	</div>
+	<br>
 	<div class="form-group row">
-		<div class="col-xs-10 col-xs-offset-1 div">
+		<div class="col-sm-8 col-sm-offset-2 div">
 			<table class="table">
 				<tbody><tr>
-					<th><span class="col-xs-10">Titre</span> <span id="spanTriTitre" class="glyphicon glyphicon-sort col-xs-1"></span></th>
-					<th><span class="col-xs-10">Date Emprunt</span> <span id="spanTriDateEmprunt" class="glyphicon glyphicon-sort col-xs-1"></span></th>
-					<th><span class="col-xs-10">Date retour</span> <span id="spanTriDateRetour" class="glyphicon glyphicon-sort col-xs-1"></span></th>
+					<th><span class="col-sm-10">Titre</span> <span id="spanTriTitre" class="glyphicon glyphicon-sort col-sm-1"></span></th>
+					<th><span class="col-sm-10">Date Emprunt</span> <span id="spanTriDateEmprunt" class="glyphicon glyphicon-sort col-sm-1"></span></th>
+					<th><span class="col-sm-10">Date retour</span> <span id="spanTriDateRetour" class="glyphicon glyphicon-sort col-sm-1"></span></th>
 				</tr>
 				<tr>
 					<td>LOT</td>
@@ -285,7 +290,7 @@
 		</div>
 	</div>
 	<div class="form-group row">
-		<button type="button" class="col-xs-2 col-xs-offset-9" data-toggle="modal" data-target="#myModal">Ajouter media</button>
+		<button type="button" class="col-sm-1 col-sm-offset-9 btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter media</button>
 	</div>
 
 	<!-- Modal -->
@@ -293,18 +298,18 @@
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
-			<div class="modal-content col-xs-9 col-xs-offset-1">
+			<div class="modal-content col-sm-9 col-sm-offset-1">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h2 class="modal-title">Nouveau média</h2>
 				</div>
 				<div class="modal-body">
-					<div class="row form-group">
-						<input type="text" name="Titre" placeholder="Titre" class="col-xs-5 col-xs-offset-1">
-						<input type="text" name="Auteur" placeholder="Auteur" class="col-xs-4 col-xs-offset-1">
+					<div class="row form-group noPaddingLeft">
+						<input type="text" name="Titre" placeholder="Titre" class="col-sm-5 col-sm-offset-1 noPaddingLeft">
+						<input type="text" name="Auteur" placeholder="Auteur" class="col-sm-4 col-sm-offset-1 noPaddingLeft">
 					</div>
 					<div class="row form-group">
-					<select name="Type" class="col-xs-3 col-xs-offset-1">
+					<select name="Type" class="col-sm-3 col-sm-offset-1">
 						<option value="Livre">Livre</option>
 						<option value="CD">CD</option>
 						<option value="DVD">DVD</option>
@@ -312,8 +317,8 @@
 				</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default col-xs-3 col-xs-offset-5" data-dismiss="modal">Valider</button>
-					<button type="button" class="btn btn-default col-xs-3 col-xs-offset-1" data-dismiss="modal">Annuler</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Valider</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
 				</div>
 			</div>
 
