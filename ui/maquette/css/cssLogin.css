@@ -19,3 +19,8 @@ h1
 {
 	font-size : 10vh;
 }
+
+div.form-group.col-sm-12.text-center
+{
+	padding-top : 10vh;
+}
