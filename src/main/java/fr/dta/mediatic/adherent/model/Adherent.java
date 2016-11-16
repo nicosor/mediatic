@@ -41,6 +41,9 @@ public class Adherent {
 		this.mail = mail;
 	}
 	
+	public Adherent(){
+		
+	}
 	@Override
 	public String toString() {
 		return "Adherent [id=" + id + ", lastname=" + lastname + ", firstname=" + firstname + ", birthday=" + birthday
