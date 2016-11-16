@@ -9,8 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.hibernate.validator.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "subscription")
@@ -21,8 +20,8 @@ public class Subscription {
 	private Long id;
 	
 	@Column
-	@NotBlank
-	private float montant;
+	@NotNull
+	private Float price;
 	
 	@Column
 	@Temporal(TemporalType.DATE)
@@ -32,20 +31,27 @@ public class Subscription {
 	@Temporal(TemporalType.DATE)
 	private Date returnDate;
 
+	public Subscription(float price, Date subscriptionDate, Date returnDate) {
+		super();
+		this.price = price;
+		this.subscriptionDate = subscriptionDate;
+		this.returnDate = returnDate;
+	}
+	
+	public Subscription () {
+		
+	}
+
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public float getPrice() {
+		return price;
 	}
 
-	public float getMontant() {
-		return montant;
-	}
-
-	public void setMontant(float montant) {
-		this.montant = montant;
+	public void setPrice(float price) {
+		this.price = price;
 	}
 
 	public Date getSubscriptionDate() {
@@ -66,7 +72,7 @@ public class Subscription {
 
 	@Override
 	public String toString() {
-		return "Subscription [id=" + id + ", montant=" + montant + ", subscriptionDate=" + subscriptionDate
+		return "Subscription [id=" + id + ", price=" + price + ", subscriptionDate=" + subscriptionDate
 				+ ", returnDate=" + returnDate + "]";
 	}
 
@@ -75,7 +81,7 @@ public class Subscription {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + Float.floatToIntBits(montant);
+		result = prime * result + Float.floatToIntBits(price);
 		result = prime * result + ((returnDate == null) ? 0 : returnDate.hashCode());
 		result = prime * result + ((subscriptionDate == null) ? 0 : subscriptionDate.hashCode());
 		return result;
@@ -95,7 +101,7 @@ public class Subscription {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (Float.floatToIntBits(montant) != Float.floatToIntBits(other.montant))
+		if (Float.floatToIntBits(price) != Float.floatToIntBits(other.price))
 			return false;
 		if (returnDate == null) {
 			if (other.returnDate != null)
