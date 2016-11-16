@@ -34,4 +34,5 @@ public class LoanDAO extends GenericDAO<Loan> {
 		return query.getResultList();
 						
 	}
+	
 }
