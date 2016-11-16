@@ -7,7 +7,7 @@ public class MediaDAO extends GenericDAO {
 	
 	public static void createMedia(Media media){
 		persist(media);
-	}
+
 	
 	public static Media getMedia(){
 		return null;
