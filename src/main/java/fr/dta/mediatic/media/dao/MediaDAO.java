@@ -3,21 +3,18 @@ package fr.dta.mediatic.media.dao;
 import fr.dta.mediatic.media.model.Media;
 import fr.dta.mediatic.utils.dao.GenericDAO;
 
-public class MediaDAO extends GenericDAO {
-	
-	public static void createMedia(Media media){
-		persist(media);
+public class MediaDAO extends GenericDAO<Media> {
 
+	private static MediaDAO dao;
 	
-	public static Media getMedia(){
-		return null;
+	private MediaDAO() {
+		super(Media.class);
 	}
-	
-	public static void deleteMedia(Media media){
+
+	public static MediaDAO instance(){
+		if (dao == null)
+			dao = new MediaDAO();
 		
-	}
-	
-	public static void updateMedia(Media media){
-		
+		return dao;
 	}
 }

@@ -1,5 +1,6 @@
 package fr.dta.mediatic.media.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -34,16 +35,17 @@ public class Media {
 	@Enumerated(EnumType.STRING)
 	private Category category;
 	
-	@Column
-	@OneToOne
-	private Loan loan;
-	
-	public Loan getLoan() {
-		return loan;
-	}
+	@OneToOne 
+	private Loan currentloan;
 
-	public void setLoan(Loan loan) {
-		this.loan = loan;
+	
+	public Media(){
+	}
+	
+	public Media (String title, String author, Category categroy){
+		this.title = title;
+		this.author = author;
+		this.category = categroy;
 	}
 
 	public Long getId() {

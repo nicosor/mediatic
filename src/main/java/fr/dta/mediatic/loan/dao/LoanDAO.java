@@ -30,7 +30,7 @@ public class LoanDAO extends GenericDAO<Loan> {
 				"SELECT DISTINCT m " +
 				"FROM Loan l " + 
 				"LEFT JOIN FETCH l.media m";
-		TypedQuery<Loan> query = entityManager.createQuery(qlQuery, Loan.class;
+		TypedQuery<Loan> query = entityManager.createQuery(qlQuery, Loan.class);
 		return query.getResultList();
 						
 	}
