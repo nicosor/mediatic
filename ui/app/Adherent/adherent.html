@@ -1,10 +1,105 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+		<script src="../bower_components/angular/angular.js"></script>
+		<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="adherent.js"></script>
+<div ng-app='adherent'>
+	<div id="displayAdherent" class="col-md-offset-2 col-md-8 mainDivRight">
+		<div id="readOnly" ng-hide="showme">
+			<div class="row rowText">
+				<span class="col-md-2 paddingLeft">Nom : SORIANO </span>
+				<span>Nicolas</span>
+			</div>
+			<div class="row rowText">
+				<span class="paddingLeft">Date de naissance : 22/10/1991</span>
+			</div>
+			<div class="row rowText">
+				<span class="paddingLeft">E-mail : nico.sor@free.fr</span>
+			</div>
+			<div class="row rowText">
+				<span class="paddingLeft">Adresse : 27 allée des chênes 33380 Marcheprime</span>
+			</div>
+			<div class="row rowText">
+				<span class="paddingLeft">Date de cotisation : 03/11/2016  Montant : 9.999€</span>
+			</div>
+			<div class="col-md-6 col-xs-6 divLeft">
+				<button type="button" class="btn btn-default" id="modifyAdherentButton" ng-click="showme=true">Modifier</button>
+			</div>
+	
+			<div class="col-md-6 col-xs-6 divRight">
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un emprunt</button>
+			</div>
+		</div>
+		
+		<div id="modifyAdherent" ng-show="showme">
+			<div class="row rowInput">
+				<input class="paddingLeft" type="text" name="name" placeholder="Nom">
+				<input class="paddingLeft" type="text" name="firstName" placeholder="Prénom"><br />
+			</div>
+			<div class="row rowInput">
+				Date de naissance : <input class="paddingLeft" type="date" name="birthDate">
+			</div>
+			<div class="row rowInput">
+				<input class="paddingLeft" type="email" name="email" placeholder="E-mail">
+			</div>
+			<div class="row rowInput">
+				<input class="paddingLeft" type="text" name="adresse" placeholder="Adresse">
+					<input class="paddingLeft" type="text" name="CP" placeholder="Code Postal">
+					<input class="paddingLeft" type="text" name="ville" placeholder="Ville">
+			</div>
+			<div class="row rowInput">
+				Date de cotisation : <input class="paddingLeft" type="date" name="subscriptionDate">
+				<input class="paddingLeft" type="number" name="surbscriptionFee" placeholder="Cotisation">
+			</div>
+			<div class="col-md-6 col-xs-6 divLeft">
+				<button type="button" class="btn btn-default" id="validateAdherent" ng-click="showme=false">Valider</button>
+				<button type="button" class="btn btn-default" id="cancelAdherent" ng-click="showme=false">Annuler</button>
+			</div>
+			<div class="col-md-6 col-xs-6 divRight">
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un emprunt</button>
+			</div>
+		</div>
 
-</body>
-</html>
+		<div ng-controller='AdherentController as aList'>		
+			<table>
+				<tr ng-repeat='adherent in aList.adherentList'>
+					<td>{{adherent.id}}</td>
+					<td>{{adherent.nom}}</td>
+					<td>{{adherent.prenom}}</td>
+					<td>{{adherent.adresse}}</td>
+					<td>{{adherent.age}}</td>
+				</tr>
+			</table>
+			<input type='text' ng-model='aList.test' placeholder='Title'>
+		</div>
+		
+		
+		
+		<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content col-md-9 col-md-offset-1">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h2 class="modal-title">Nouvel emprunt</h2>
+				</div>
+				<div class="modal-body">
+					<div class="row form-group">
+						<input type="text" name="titre" placeholder="Titre" class="col-md-6 paddingLeft">
+					</div>
+					<div class="row">
+						<span class="col-md-5 spanDate">Date de l'emprunt :</span>
+						<input type="date" name="dateEmprunt" class="col-md-6 paddingLeft">
+						</div>
+				</div>
+				<div class="modal-footer ">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Valider</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>
