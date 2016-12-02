@@ -1,9 +1,10 @@
-		<script src="../bower_components/angular/angular.js"></script>
-		<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="adherent.js"></script>
+<script src="../Services/services.js"></script>
+<script src="adherent.js"></script>
 <div ng-app='adherent'>
-	<div id="displayAdherent" class="col-md-offset-2 col-md-8 mainDivRight">
+	<div id="displayAdherent" class="col-md-offset-2 col-md-8 mainDivRight"  ng-controller='AdherentController as aList'>
 		<div id="readOnly" ng-hide="showme">
 			<div class="row rowText">
 				<span class="col-md-2 paddingLeft">Nom : SORIANO </span>
@@ -32,23 +33,32 @@
 		
 		<div id="modifyAdherent" ng-show="showme">
 			<div class="row rowInput">
-				<input class="paddingLeft" type="text" name="name" placeholder="Nom">
-				<input class="paddingLeft" type="text" name="firstName" placeholder="Prénom"><br />
+				<input class="paddingLeft" type="text" name="name" placeholder="Nom" 
+				 ng-model='aList.adherentList[0].nom' ng-required="true">
+				<input class="paddingLeft" type="text" name="firstName" placeholder="Prénom" 
+				 ng-model='aList.adherentList[0].prenom' ng-required="true"><br />
 			</div>
 			<div class="row rowInput">
-				Date de naissance : <input class="paddingLeft" type="date" name="birthDate">
+				Date de naissance : <input class="paddingLeft" type="date" name="birthDate" 
+				ng-model="aList.adherentList[0].date_naissance" ng-required="true">
 			</div>
 			<div class="row rowInput">
-				<input class="paddingLeft" type="email" name="email" placeholder="E-mail">
+				<input class="paddingLeft" type="email" name="email" placeholder="E-mail" 
+				 ng-model='aList.adherentList[0].email' ng-required="true">
 			</div>
 			<div class="row rowInput">
-				<input class="paddingLeft" type="text" name="adresse" placeholder="Adresse">
-					<input class="paddingLeft" type="text" name="CP" placeholder="Code Postal">
-					<input class="paddingLeft" type="text" name="ville" placeholder="Ville">
+				<input class="paddingLeft" type="text" name="adresse" placeholder="Adresse" 
+				 ng-model='aList.adherentList[0]["adresse"].ligne1' ng-required="true">
+					<input class="paddingLeft" type="text" name="CP" placeholder="Code Postal" 
+				 ng-model='aList.adherentList[0]["adresse"].codepostal' ng-required="true">
+					<input class="paddingLeft" type="text" name="ville" placeholder="Ville" 
+				 ng-model='aList.adherentList[0]["adresse"].ville' ng-required="true">
 			</div>
 			<div class="row rowInput">
-				Date de cotisation : <input class="paddingLeft" type="date" name="subscriptionDate">
-				<input class="paddingLeft" type="number" name="surbscriptionFee" placeholder="Cotisation">
+				Date de cotisation : <input class="paddingLeft" type="date" name="subscriptionDate" 
+				 ng-model='aList.adherentList[0]["cotisation"].debut' ng-required="true">
+				<input class="paddingLeft" type="number" name="surbscriptionFee" placeholder="Cotisation" 
+				 ng-model='aList.adherentList[0]["cotisation"].montant' ng-required="true">
 			</div>
 			<div class="col-md-6 col-xs-6 divLeft">
 				<button type="button" class="btn btn-default" id="validateAdherent" ng-click="showme=false">Valider</button>
@@ -59,9 +69,10 @@
 			</div>
 		</div>
 
-		<div ng-controller='AdherentController as aList'>		
+		<div>	
 			<table>
 				<tr ng-repeat='adherent in aList.adherentList'>
+				<td>tutu</td>
 					<td>{{adherent.id}}</td>
 					<td>{{adherent.nom}}</td>
 					<td>{{adherent.prenom}}</td>
@@ -69,37 +80,7 @@
 					<td>{{adherent.age}}</td>
 				</tr>
 			</table>
-			<input type='text' ng-model='aList.test' placeholder='Title'>
 		</div>
 		
-		
-		
-		<!-- Modal -->
-	<div id="myModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content col-md-9 col-md-offset-1">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h2 class="modal-title">Nouvel emprunt</h2>
-				</div>
-				<div class="modal-body">
-					<div class="row form-group">
-						<input type="text" name="titre" placeholder="Titre" class="col-md-6 paddingLeft">
-					</div>
-					<div class="row">
-						<span class="col-md-5 spanDate">Date de l'emprunt :</span>
-						<input type="date" name="dateEmprunt" class="col-md-6 paddingLeft">
-						</div>
-				</div>
-				<div class="modal-footer ">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Valider</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
 </div>
 </div>
