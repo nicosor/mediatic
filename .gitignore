@@ -14,3 +14,4 @@ ui/package.json
 ui/node_modules
 ui/app/bower_components
 npm-debug.log
+node_modules
