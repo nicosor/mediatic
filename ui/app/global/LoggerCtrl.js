@@ -1,6 +1,8 @@
-angular.module('global', []).controller('LoggerCtrl', function($scope){
+angular.module('global').controller('LoggerCtrl', function($scope, loginService){
 
-	$scope.showMenu=true;
-
+	if(loginService.isConnected()){
+		$scope.showMenu=loginService.isConnected();
+	} else {
+		$location.url('/login');
+	}
 });	
-/* redirection login */
