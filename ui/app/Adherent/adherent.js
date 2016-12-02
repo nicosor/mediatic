@@ -19,4 +19,5 @@ angular.module('adherent', ['ngRoute'])
 				ctrl.adherentList.push(response.data[i]);
 			};
 		});
+		this.test="tutu";
 });
