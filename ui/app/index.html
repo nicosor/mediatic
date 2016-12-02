@@ -1,1 +1,32 @@
-HELLO
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="./css/cssMenu.css" type="text/css">
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="global/global.js"></script>
+<script src="global/LoggerCtrl.js"></script>
+<script src="global/loginService.js"></script>
+<script src="MediaSearch/mediaSearchController.js"></script>
+<script src="Services/services.js"></script>
+<title>Index</title>
+</head>
+<body ng-controller="LoggerCtrl">
+	<div ng-show="showMenu">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li><a href="#/mediaSearch.html">Médias</a></li><!--
+					--><li><a href="#/adherentSearch.html">Adhérents</a></li><!--
+					--><li style="float: right"><a href="#/login.html">Déconnexion</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<ng-view></ng-view>
+</body>
+</html>

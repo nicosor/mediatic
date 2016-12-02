@@ -10,7 +10,7 @@ angular
 		.controller('mediaSearchController', 
 		function($http, getUrl) {
 			var med = this;
-			getUrl.getList('http://192.168.1.93:8090/resource/media.recherche').then(function (liste) {;
-			med.catalog = liste;
+			getUrl.getList('http://192.168.1.93:8090/resource/media.recherche').then(function (liste) {
+				med.catalog = liste;
 			});
 		});
