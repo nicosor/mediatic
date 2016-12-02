@@ -5,7 +5,6 @@ angular.module('services', []).factory(
 				getList : function(url) {
 					var promise = $http.get(url);
 					return promise.then(function(response) {
-						console.log(response.data);
 						return response.data;
 					});
 				}
