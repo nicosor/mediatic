@@ -7,9 +7,4 @@ target/
 .project
 
 .DS_Store
-.bowerrc
-bower.json
-karma.conf.js
-package.json
-
 
