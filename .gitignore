@@ -11,5 +11,6 @@ ui/.bowerrc
 ui/bower.json
 ui/karma.conf.js
 ui/package.json
-
-
+ui/node_modules
+ui/app/bower_components
+npm-debug.log
