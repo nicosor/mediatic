@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="mediaSearch">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="mediaSearchController.js"></script>
 </head>
 <body>
 
+<div class="col-sm-offset-2 col-sm-8" ng-controller="mediaSearchController as mediaSrchCtrl">
+	<div class="form-group row">
+		<form name="mediaSearchForm">
+			<input type="text" name="mediaTitle" placeholder="Titre" class="col-sm-2">
+			<input type="text" name="mediaAuthor" placeholder="Auteur" class="col-sm-4 col-sm-offset-1"> 
+			<select name="mediaType" class="col-sm-4 col-sm-offset-1" ng-model="option">
+				<option value="Livre">Livre</option>
+				<option value="CD">CD</option>
+				<option value="DVD">DVD</option>
+			</select>
+		</form>
+	</div>
+
+
+
+	<table class="table">
+		<tr>
+			<th>Titre</th>
+			<th>Autheur</th>
+			<th>Type</th>
+		</tr>
+		<tr ng-repeat="item in mediaSrchCtrl.catalog">
+			<td ng-bind="item.titre"></td>
+			<td ng-bind="item.auteur"></td>
+			<td ng-bind="item.type"></td>
+		</tr>
+	</table>
+</div>
 </body>
 </html>
