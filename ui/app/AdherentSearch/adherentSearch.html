@@ -45,7 +45,7 @@ tr:nth-child(even) {
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-sm-12 div" ng-controller="AdherentSearchController">
+		<div class="col-sm-12 div" ng-controller="AdherentSearchController as adherentSrchCtrl">
 			<table class="table">
 				<thead>
 					<tr>
@@ -57,12 +57,12 @@ tr:nth-child(even) {
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in adherentSrchCtrl.catalog | filter:{id:adherentSrchCtrl.idFilter | filter:{nom:adherentSrchCtrl.nameFilter} | filter:{prenom:adherentSrchCtrl.surnameFilter}">
+					<tr ng-repeat="item in adherentSrchCtrl.catalog | filter:{id:adherentSrchCtrl.idFilter, nom:adherentSrchCtrl.nameFilter, prenom:adherentSrchCtrl.surnameFilter}">
 						<td ng-bind="item.id"></td>
-						<td ng-bind="item.nom item.prenom"></td>
-						<td ng-bind="item.date_naissance"></td>
+						<td ng-bind="item.nom + ' ' + item.prenom"></td>
+						<td ng-bind="item.date_naissance | date:'dd/MM/yyyy'"></td>
 						<td ng-bind="item.cotisation"></td>
-						<td ng-bind="item.emprunt.length()"></td>
+						<td ng-bind="item.emprunt.length"></td>
 					</tr>
 				</tbody>
 			</table>
