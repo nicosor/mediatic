@@ -1,22 +1,21 @@
 angular.module('adherent', ['ngRoute', 'services'])
 	.config(function($routeProvider) {
 	
-		$routeProvider.when('/adherent', {
-			templateUrl:'./adherent/adherent.html',
+		$routeProvider.when('/adherent/:idAdh', {
+			templateUrl:'./Adherent/adherent.html',
 			controller:'AdherentController',
-			controllerAs:'adherentCtrl'
+			controllerAs:'aList'
 		});
 	})
-	.controller('AdherentController', function($http, getAdherent, $filter) {
+	.controller('AdherentController', function($http, $routeParams, getAdherent) {
 		
 		var ctrl = this;
 		
+		this.currentId = $routeParams.idAdh;
 		this.adherentList = [];
 		var url = 'http://192.168.1.93:8090/resource/adherent.recherche';
 		getAdherent.getAdherentList(url).then(function (liste) {
 			ctrl.adherentList = liste;
-			console.log(ctrl.adherentList)
+			console.log(ctrl.adherentList);
 		});
-		this.tutu = new Date()
-		this.test="tutu";
 });
