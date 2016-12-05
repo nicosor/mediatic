@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<div class="col-sm-offset-2 col-sm-8">
+<div class="col-sm-offset-2 col-sm-8"">
 	<div class="form-group row">
 		<form name="mediaSearchForm" class="form-inline">
 			<div class="form-group">
@@ -26,19 +26,18 @@
 
 	<div class=" row">
 		<div class="col-sm-12 div">
-			<table class="table">
+			<table class="table" infinite-scroll="mediaSrchCtrl.nextPage()" infinite-scroll-use-document-bottom="true">
 				<tr>
 					<th>Titre</th>
 					<th>Auteur</th>
 					<th>Type</th>
 				</tr>
-				<tr infinite-scroll='mediaSrchCtrl.nextPage()'>
-					<div ng-repeat="item in mediaSrchCtrl.catalog | filter:{titre:mediaSrchCtrl.titleFilter} | filter:{auteur:mediaSrchCtrl.authorFilter}  | filter:{type:mediaSrchCtrl.optionFilter}">
-					<td ng-bind="item.titre"></td>
-					<td ng-bind="item.auteur"></td>
-					<td ng-bind="item.type"></td>
-					</div>
-				</tr>
+					<tr
+						ng-repeat="item in mediaSrchCtrl.catalog | filter:{titre:mediaSrchCtrl.titleFilter} | filter:{auteur:mediaSrchCtrl.authorFilter}  | filter:{type:mediaSrchCtrl.optionFilter}">
+						<td ng-bind="item.titre"></td>
+						<td ng-bind="item.auteur"></td>
+						<td ng-bind="item.type"></td>
+					</tr>
 			</table>
 		</div>
 	</div>

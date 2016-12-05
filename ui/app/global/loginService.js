@@ -16,7 +16,7 @@ angular
 		return {
 			connect : function()
 			{
-				$location.url('/media');
+				$location.url('/mediaSearch');
 				myConn = true;
 				$cookies.put('isConnected', myConn);
 			},

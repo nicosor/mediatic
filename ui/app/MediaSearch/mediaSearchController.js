@@ -12,22 +12,12 @@ angular.module('mediaSearch', [ 'ngRoute', 'services', 'ngSanitize', 'ui.bootstr
 			med.httpCount=0;
 			med.catalog = [];
 			console.log("test");
-			getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med)
-					.then(function(liste) {
-						med.catalog = liste;
-						console.log(med.catalog);
-					});
+			getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog);
 
 			med.animationsEnabled = true;
 			
 			med.nextPage = function () {
-				getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med)
-				.then(function(liste) {
-					for(var i in liste ) {
-						med.catalog.push(liste[i]);
-					}
-					
-				});
+				getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog);
 			}
 
 			med.open = function(size, parentSelector) {

@@ -1,19 +1,23 @@
-angular.module('services', [])
-	.factory('getUrl',function($http) {
+angular.module('services', ['infinite-scroll'])
+	.factory('getUrl',function($http, $q) {
+			var previous = $q.resolve();
 			return {
-				getList : function(url, ctrl) {
-					var promise = $http.get(url);
-					return promise.then(function(response) {
-						var rep = [];
-						console.log(ctrl.httpCount);
-						for(var i = ctrl.httpCount; i < response.length || i < 25*(ctrl.httpCount + 1); i++) {
-							rep.push(response.data[i]);
-							console.log(response.data[i]);
-						} 
-						ctrl.httpCount++;
-						console.log(rep);
-						return rep;
+				getList : function(url, ctrl, liste) {
+					var temp = previous;
+					var defer = $q.defer();
+					previous = defer.promise;
+					temp.then( function() {
+						var page = (ctrl.loadedPage===undefined?0:ctrl.loadedPage+1);
+						$http.get(url, {params:{page:page}}).then(function(response) {
+							console.log(page, response.data.length, ctrl.loadedPage, response.data);
+							for(var i = 0; i < response.data.length; i++) {
+								liste.push(response.data[i]);
+							} 
+							ctrl.loadedPage = page;
+							defer.resolve();
+						});
 					});
+					
 				}
 			}
 		})
