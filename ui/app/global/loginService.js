@@ -1,28 +1,33 @@
 angular
 	.module('global')
-	.factory('loginService', function($location)
+	.factory('loginService', function($location, $cookies)
 	{
-		var myConn = false;
+		var myConn;
+		if($cookies.get('isConnected') != undefined)
+		{
+			console.log('cookieVar '+ $cookies.get('isConnected'));
+			myConn = $cookies.get('isConnected');
+		}
+		else
+		{
+			myConn = false;
+		}
+		
 		return {
 			connect : function()
 			{
 				$location.url('/media');
 				myConn = true;
-				console.log('conn '+ myConn);
+				$cookies.put('isConnected', myConn);
 			},
 			
 			disconnect : function()
 			{
 				$location.url('/login');
 				myConn = false;
+				$cookies.remove('isConnected');
 				console.log('disconn '+ myConn);
 
-			},
-			
-			isConnected: function()
-			{
-				console.log('isconn '+ myConn);
-				return myConn;
-			}
+			}		
 		}
 	});

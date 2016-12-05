@@ -1,4 +1,4 @@
-var log = angular.module('myLog', ['global']);
+var log = angular.module('myLog', ['global', 'ngCookies']);
 
 log.config(function($routeProvider)
 {
@@ -10,13 +10,14 @@ log.config(function($routeProvider)
 			});
 });
 
-log.controller('LoginController', function(loginService, $rootScope)
+log.controller('LoginController', function(loginService, $rootScope, $cookies)
 {
 	var log = this;
 	
 	log.connect = function()
 	{
 		loginService.connect();
-		$rootScope.showMenu=loginService.isConnected();
+		console.log('cookieConnect '+ $cookies.get('isConnected'))
+		$rootScope.showMenu=$cookies.get('isConnected');
 	}
 });

@@ -1,17 +1,19 @@
-angular.module('global').controller('LoggerCtrl', function($scope, loginService, $location){
+angular.module('global').controller('LoggerCtrl', function($scope, $cookies, loginService, $location){
 
-	if(loginService.isConnected())
+	if($cookies.get('isConnected') != undefined)
 	{
-		$scope.showMenu=loginService.isConnected();
+		console.log('cookieMenu '+ $cookies.get('isConnected'));
+		$scope.showMenu = $cookies.get('isConnected');
 	}
 	else
 	{
 		$location.url('/login');
 	}
 	
-	this.disconnect = function()
+	$scope.disconnect = function()
 	{
 		console.log('deconnexion');
 		loginService.disconnect();
+		$scope.showMenu=$cookies.get('isConnected');
 	}
 });	

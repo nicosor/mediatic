@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/cssLogin.css" type="text/css">
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="app.js"></script>
 <script src="global/global.js"></script>
 <script src="global/LoggerCtrl.js"></script>
@@ -34,8 +35,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="#/mediaSearch">Médias</a></li><!--
 					--><li><a href="#/adherentSearch">Adhérents</a></li><!--
-					--><li style="float: right"><a href="" ng-click="LoggerCtrl.disconnect()">Déconnexion</a></li>
-
+					--><li style="float: right"><a ng-click="disconnect()">Déconnexion</a></li>
 				</ul>
 			</div>
 		</nav>

@@ -1,1 +1,1 @@
-angular.module('global', []);
+angular.module('global', ['ngCookies']);
