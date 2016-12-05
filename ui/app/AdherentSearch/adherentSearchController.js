@@ -13,11 +13,16 @@ angular
 			getAdherent.getAdherentList(url).then(function (liste) {
 				adh.catalog = liste;
 			});
+			
 			adh.getFilter = function(){
 				return {
 					id:(adh.idFilter==null?undefined:adh.idFilter), 
 					nom:adh.nameFilter, 
 					prenom:adh.surnameFilter
 				};
+			};
+			
+			adh.checkCotisation = function(item){
+				return item.cotisation.fin > new Date();
 			};
 		});
