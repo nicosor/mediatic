@@ -8,20 +8,20 @@ angular
 			{
 				$location.url('/media');
 				myConn = true;
-				console.log('conn '+myConn);
+				console.log('conn '+ myConn);
 			},
 			
 			disconnect : function()
 			{
 				$location.url('/login');
 				myConn = false;
-				console.log('disconn '+myConn);
+				console.log('disconn '+ myConn);
 
 			},
 			
 			isConnected: function()
 			{
-				console.log('isconn '+myConn);
+				console.log('isconn '+ myConn);
 				return myConn;
 			}
 		}
