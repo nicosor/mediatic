@@ -1,8 +1,9 @@
 #centre
 {
-	margin-top: 30vh; /* poussé de la moitié de hauteur de viewport */
+	margin-top: 45vh; /* poussé de la moitié de hauteur de viewport */
 	transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 	outline-style : solid ;
+	outline-color: deeppink;
 }
 
 input.padding
@@ -23,4 +24,9 @@ h1
 div.form-group.col-sm-12.text-center
 {
 	padding-top : 10vh;
+}
+
+input.ng-invalid.ng-dirty.ng-touched
+{
+	border-color : red;
 }

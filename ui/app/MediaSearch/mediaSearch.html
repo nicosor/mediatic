@@ -1,33 +1,39 @@
-
-<div class="col-sm-offset-2 col-sm-8"
-	ng-controller="mediaSearchController as mediaSrchCtrl">
+<meta charset="UTF-8">
+<div class="col-sm-offset-2 col-sm-8"">
 	<div class="form-group row">
-		<form name="mediaSearchForm">
-			<input type="text" name="mediaTitle"
-				ng-model="mediaSrchCtrl.titleFilter" placeholder="Titre"
-				class="col-sm-2"> <input type="text" name="mediaAuthor"
-				ng-model="mediaSrchCtrl.authorFilter" placeholder="Auteur"
-				class="col-sm-4 col-sm-offset-1"> <select name="mediaType"
-				class="col-sm-4 col-sm-offset-1"
-				ng-model="mediaSrchCtrl.optionFilter">
-				<option value="Livre">Livre</option>
-				<option value="CD">CD</option>
-				<option value="DVD">DVD</option>
-			</select>
+		<form name="mediaSearchForm" class="form-inline">
+			<div class="form-group">
+				<input type="text" name="mediaTitle"
+					ng-model="mediaSrchCtrl.titleFilter" placeholder="Titre"
+					class="form-control">
+			<div class="form-group">
+				<input type="text" name="mediaAuthor"
+					ng-model="mediaSrchCtrl.authorFilter" placeholder="Auteur"
+					class="form-control"> 
+			</div>
+			<div class="form-group">
+				<select name="mediaType"
+					class="form-control"
+					ng-model="mediaSrchCtrl.optionFilter">
+					<option value="Livre">Livre</option>
+					<option value="CD">CD</option>
+					<option value="DVD">DVD</option>
+				</select>
+			</div>	
 		</form>
 	</div>
-
+	<br>
 
 	<div class=" row">
 		<div class="col-sm-12 div">
 			<table class="table">
 				<tr>
 					<th>Titre</th>
-					<th>Autheur</th>
+					<th>Auteur</th>
 					<th>Type</th>
 				</tr>
 				<tr
-					ng-repeat="item in mediaSrchCtrl.catalog | filter:{auteur:mediaSrchCtrl.authorFilter}  | filter:{type:mediaSrchCtrl.optionFilter}">
+					ng-repeat="item in mediaSrchCtrl.catalog | filter:{titre:mediaSrchCtrl.titleFilter} | filter:{auteur:mediaSrchCtrl.authorFilter}  | filter:{type:mediaSrchCtrl.optionFilter}">
 					<td ng-bind="item.titre"></td>
 					<td ng-bind="item.auteur"></td>
 					<td ng-bind="item.type"></td>
@@ -40,41 +46,45 @@
 		<br>
 		<div>
 			<button type="button" class="btn btn-default" style="float: right"
-				data-toggle="modal" data-target="#myModal">Ajouter média</button>
+				data-toggle="modal" data-target="#myModal">Ajouter mÃ©dia</button>
+		</div>
+	</div>
+
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content col-sm-9 col-sm-offset-1">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h2 class="modal-title">Nouveau mÃ©dia</h2>
+				</div>
+				<div class="modal-body">
+					<div class="row form-group noPaddingLeft">
+						<input type="text" name="Titre" placeholder="Titre"
+							class="col-sm-5 col-sm-offset-1 noPaddingLeft"> <input
+							type="text" name="Auteur" placeholder="Auteur"
+							class="col-sm-4 col-sm-offset-1 noPaddingLeft">
+					</div>
+					<div class="row form-group">
+						<select name="Type" class="col-sm-3 col-sm-offset-1">
+							<option value="Livre">Livre</option>
+							<option value="CD">CD</option>
+							<option value="DVD">DVD</option>
+						</select>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Valider</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-	<div class="modal-dialog">
 
-		<!-- Modal content-->
-		<div class="modal-content col-sm-9 col-sm-offset-1">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h2 class="modal-title">Nouveau média</h2>
-			</div>
-			<div class="modal-body">
-				<div class="row form-group noPaddingLeft">
-					<input type="text" name="Titre" placeholder="Titre"
-						class="col-sm-5 col-sm-offset-1 noPaddingLeft"> <input
-						type="text" name="Auteur" placeholder="Auteur"
-						class="col-sm-4 col-sm-offset-1 noPaddingLeft">
-				</div>
-				<div class="row form-group">
-					<select name="Type" class="col-sm-3 col-sm-offset-1">
-						<option value="Livre">Livre</option>
-						<option value="CD">CD</option>
-						<option value="DVD">DVD</option>
-					</select>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Valider</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-			</div>
-		</div>
 
-	</div>
-</div>

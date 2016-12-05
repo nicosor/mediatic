@@ -29,3 +29,13 @@ div#noPadding
 {
 	padding-right : 0;
 }
+
+span.libelle
+{
+	font-size : 1.125vh;
+}
+
+span.info
+{
+	font-size : 1.8125vh;
+}

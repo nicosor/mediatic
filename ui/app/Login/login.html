@@ -1,1 +1,45 @@
-LOGIN
+<meta charset="UTF8">
+<script>
+	$window.document.title('page de connexion');
+</script>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="col-sm-12" id="centre">
+					<div id="espace" class="text-right">
+						<form class="form-horizontal" name="loginForm" novalidate method="post">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="text" name="login" ng-model="LogCtrl.log" ng-required="true"
+										ng-minlength="3" placeholder="Identifiant" class="form-control padding">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="password" name="password" ng-model="LogCtrl.password" ng-required="true"
+									ng-minlength="3" placeholder="Mot de passe" class="form-control padding">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+										<input type="button" class="btn btn-default" value="Connexion" ng-disabled="loginForm.$invalid" ng-click="LogCtrl.connect()">
+								</div>
+							</div>
+							<div ng-show="loginForm.$dirty && loginForm.$invalid && loginForm.login.$touched && loginForm.password.$touched">
+								il y a des erreurs dans le formulaire :<br>
+								<div ng-repeat="chp in loginForm.$error.required" ng-show="chp.$dirty && chp.$touched">
+									le champs {{chp.$name}} est requis
+								</div>
+								<div ng-repeat="chp in loginForm.$error.minlength" ng-show="chp.$dirty && chp.$touched">
+									le champs {{chp.$name}} est trop court
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
