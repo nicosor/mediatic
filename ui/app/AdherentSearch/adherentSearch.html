@@ -40,12 +40,12 @@ tr:nth-child(even) {
 <div class="col-sm-offset-2 col-sm-8">
 	<div class="form-group row">
 		<input type="number" name="id" ng-model="adherentSrchCtrl.idFilter" placeholder="Identifiant" class="col-sm-2">
-		<input type="text" name="name" ng-model="adherentSrchCtrl.nameFilter"placeholder="Nom" class="col-sm-offset-1 col-sm-4"> 
-		<input type="text" name="surname" ng-model="adherentSrchCtrl.surnameFilter"placeholder="Prénom" class="col-sm-offset-1 col-sm-4">
+		<input type="text" name="name" ng-model="adherentSrchCtrl.nameFilter" placeholder="Nom" class="col-sm-offset-1 col-sm-4"> 
+		<input type="text" name="surname" ng-model="adherentSrchCtrl.surnameFilter" placeholder="Prénom" class="col-sm-offset-1 col-sm-4">
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-sm-12 div" ng-controller="AdherentSearchController">
+		<div class="col-sm-12 div">
 			<table class="table">
 				<thead>
 					<tr>
@@ -57,12 +57,12 @@ tr:nth-child(even) {
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in adherentSrchCtrl.catalog | filter:{id:adherentSrchCtrl.idFilter | filter:{nom:adherentSrchCtrl.nameFilter} | filter:{prenom:adherentSrchCtrl.surnameFilter}">
+					<tr ng-repeat="item in adherentSrchCtrl.catalog | filter:adherentSrchCtrl.getFilter()">
 						<td ng-bind="item.id"></td>
-						<td ng-bind="item.nom item.prenom"></td>
-						<td ng-bind="item.date_naissance"></td>
+						<td><a href="#/adherent/{{item.id}}" ng-bind="item.nom + ' ' + item.prenom"></a></td>
+						<td ng-bind="item.date_naissance | date:'dd/MM/yyyy'"></td>
 						<td ng-bind="item.cotisation"></td>
-						<td ng-bind="item.emprunt.length()"></td>
+						<td ng-bind="item.emprunt.length"></td>
 					</tr>
 				</tbody>
 			</table>

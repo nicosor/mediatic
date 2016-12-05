@@ -2,16 +2,20 @@
 <html ng-app="app">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-<link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css">
-<link rel="stylesheet" href="./css/cssMenu.css" type="text/css">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="css/cssMenu.css" type="text/css">
+<link rel="stylesheet" href="css/cssLogin.css" type="text/css">
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="app.js"></script>
 <script src="global/global.js"></script>
 <script src="global/LoggerCtrl.js"></script>
 <script src="global/loginService.js"></script>
+<script src="Login/LoginCtrl.js"></script>
+<script src="Media/MediaCtrl.js"></script>
 <script src="MediaSearch/mediaSearchController.js"></script>
+<script src="AdherentSearch/adherentSearchController.js"></script>
 <script src="Services/services.js"></script>
 <script
 	src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
@@ -19,7 +23,9 @@
 	src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<title>Index</title>
+<script src="Adherent/adherent.js"></script>
+<title ng-bind="header"></title>
+
 </head>
 <body ng-controller="LoggerCtrl">
 	<div ng-show="showMenu">
