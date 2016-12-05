@@ -36,7 +36,10 @@
 <!-- 		Adresse -->
 
 		<div class="row rowText">
-			<span class="paddingLeft">Adresse : 27 allée des chênes 33380 Marcheprime</span>
+			<span class="paddingLeft">Adresse : {{aList.adherentList[aList.currentId]["adresse"].ligne1}}
+												{{aList.adherentList[aList.currentId]["adresse"].ligne2}}
+												 {{aList.adherentList[aList.currentId]["adresse"].codepostal}}
+												 {{aList.adherentList[aList.currentId]["adresse"].ville}}</span>
 		</div>
 		
 <!-- 		Cotisation -->
