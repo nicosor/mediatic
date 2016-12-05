@@ -6,16 +6,22 @@ angular
 		return {
 			connect : function()
 			{
-				$location.url('/mediaSearch');
-				myConn = false;
+				$location.url('/media');
+				myConn = true;
+				console.log('conn '+ myConn);
 			},
 			
 			disconnect : function()
 			{
 				$location.url('/login');
-				myConn = true;
+				myConn = false;
+				console.log('disconn '+ myConn);
+
 			},
-			isConnected: function(){
+			
+			isConnected: function()
+			{
+				console.log('isconn '+ myConn);
 				return myConn;
 			}
 		}
