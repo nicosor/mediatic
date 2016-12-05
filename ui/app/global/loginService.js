@@ -13,7 +13,7 @@ angular
 			disconnect : function()
 			{
 				$location.url('/login');
-				myConn = true
+				myConn = true;
 			},
 			isConnected: function(){
 				return myConn;
