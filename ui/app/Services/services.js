@@ -1,10 +1,18 @@
 angular.module('services', [])
 	.factory('getUrl',function($http) {
 			return {
-				getList : function(url) {
+				getList : function(url, ctrl) {
 					var promise = $http.get(url);
 					return promise.then(function(response) {
-						return response.data;
+						var rep = [];
+						console.log(ctrl.httpCount);
+						for(var i = ctrl.httpCount; i < response.length || i < 25*(ctrl.httpCount + 1); i++) {
+							rep.push(response.data[i]);
+							console.log(response.data[i]);
+						} 
+						ctrl.httpCount++;
+						console.log(rep);
+						return rep;
 					});
 				}
 			}
