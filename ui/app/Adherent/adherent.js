@@ -16,6 +16,5 @@ angular.module('adherent', ['ngRoute', 'services'])
 		var url = 'http://192.168.1.93:8090/resource/adherent.recherche';
 		getAdherent.getAdherentList(url).then(function (liste) {
 			ctrl.adherentList = liste;
-			console.log(ctrl.adherentList);
 		});
 });
