@@ -14,7 +14,6 @@ angular.module('mediaSearch', [ 'ngRoute', 'services', 'ngSanitize', 'ui.bootstr
 			console.log("test");
 			getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med)
 					.then(function(liste) {
-						
 						med.catalog = liste;
 						console.log(med.catalog);
 					});
