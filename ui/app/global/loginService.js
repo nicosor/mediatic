@@ -16,7 +16,9 @@ angular
 				$location.url('/login');
 				myConn = false;
 				console.log('disconn '+myConn);
+
 			},
+			
 			isConnected: function()
 			{
 				console.log('isconn '+myConn);

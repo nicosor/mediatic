@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'global', 'myLog', 'myMedia', 'mediaSearch', 'adherentSearch'])
+angular.module('app', ['ngRoute', 'global', 'myLog', 'myMedia', 'adherent', 'mediaSearch', 'adherentSearch'])
 	.config(function($routeProvider){
 		$routeProvider.otherwise({
 			redirectTo:'/login'

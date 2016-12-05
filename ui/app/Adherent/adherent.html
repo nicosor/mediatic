@@ -1,86 +1,192 @@
-<script src="../bower_components/angular/angular.js"></script>
-<script src="../bower_components/angular-route/angular-route.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="../Services/services.js"></script>
-<script src="adherent.js"></script>
-<div ng-app='adherent'>
-	<div id="displayAdherent" class="col-md-offset-2 col-md-8 mainDivRight"  ng-controller='AdherentController as aList'>
-		<div id="readOnly" ng-hide="showme">
-			<div class="row rowText">
-				<span class="col-md-2 paddingLeft">Nom : SORIANO </span>
-				<span>Nicolas</span>
-			</div>
-			<div class="row rowText">
-				<span class="paddingLeft">Date de naissance : 22/10/1991</span>
-			</div>
-			<div class="row rowText">
-				<span class="paddingLeft">E-mail : nico.sor@free.fr</span>
-			</div>
-			<div class="row rowText">
-				<span class="paddingLeft">Adresse : 27 allée des chênes 33380 Marcheprime</span>
-			</div>
-			<div class="row rowText">
-				<span class="paddingLeft">Date de cotisation : 03/11/2016  Montant : 9.999€</span>
-			</div>
-			<div class="col-md-6 col-xs-6 divLeft">
-				<button type="button" class="btn btn-default" id="modifyAdherentButton" ng-click="showme=true">Modifier</button>
-			</div>
+<meta charset="UTF-8">
+
+<!-- a supprimer -->
+
+<style>
+.paddingLeft {
+	padding-left : 0px;
+}
+</style>
+
+
+<!-- Affichage information adhÃ©rent -->
+
+
+<div id="displayAdherent" class="col-md-offset-2 col-md-8 mainDivRight" >
+	<div id="readOnly" ng-hide="showme">
 	
-			<div class="col-md-6 col-xs-6 divRight">
-				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un emprunt</button>
-			</div>
+<!-- 		Nom -->
+
+		<div class="row rowText">
+			<span class="paddingLeft">Nom : {{aList.adherentList[aList.currentId].nom}} {{aList.adherentList[aList.currentId].prenom}}</span>
 		</div>
 		
+<!-- 		Prenom -->
+
+		<div class="row rowText">
+			<span class="paddingLeft">Date de naissance : {{aList.adherentList[aList.currentId].date_naissance | date : 'dd/MM/yyyy'}}</span>
+		</div>
+		
+<!-- 		E-mail -->
+
+		<div class="row rowText">
+			<span class="paddingLeft">E-mail : {{aList.adherentList[aList.currentId].email}}</span>
+		</div>
+		
+<!-- 		Adresse -->
+
+		<div class="row rowText">
+			<span class="paddingLeft">Adresse : {{aList.adherentList[aList.currentId]["adresse"].ligne1}}
+												{{aList.adherentList[aList.currentId]["adresse"].ligne2}}
+												 {{aList.adherentList[aList.currentId]["adresse"].codepostal}}
+												 {{aList.adherentList[aList.currentId]["adresse"].ville}}</span>
+		</div>
+		
+<!-- 		Cotisation -->
+
+		<div class="row rowText">
+			<span class="paddingLeft">Date de cotisation : {{aList.adherentList[aList.currentId]["cotisation"].debut | date : 'dd/MM/yyyy'}}  Montant : {{aList.adherentList[aList.currentId]["cotisation"].montant}}â‚¬</span>
+		</div>
+		
+<!-- 		Modification adherent -->
+
+		<div class="col-md-6 col-xs-6 divLeft">
+			<button type="button" class="btn btn-default" id="modifyAdherentButton" ng-click="showme=true">Modifier</button>
+		</div>
+
+<!-- 		Pop up -->
+
+		<div class="col-md-6 col-xs-6 divRight">
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un emprunt</button>
+		</div>
+	</div>
+	
+	
+<!-- 	Edition adherent en cour -->
+
+	<form class="form-group">
 		<div id="modifyAdherent" ng-show="showme">
-			<div class="row rowInput">
-				<input class="paddingLeft" type="text" name="name" placeholder="Nom" 
-				 ng-model='aList.adherentList[0].nom' ng-required="true">
-				<input class="paddingLeft" type="text" name="firstName" placeholder="Prénom" 
-				 ng-model='aList.adherentList[0].prenom' ng-required="true"><br />
+			
+<!-- 			Nom -->
+			
+			<div class="row">
+				<div class="col-md-3">
+					<label>Nom :</label><br />
+					<input class="paddingLeft" type="text" name="name" placeholder="Nom" 
+					ng-model='aList.adherentList[aList.currentId].nom' ng-required="true"><br />
+				</div>
+				
+<!-- 			Prenom -->
+	
+				<div class="col-md-3">
+					<label>PrÃ©nom :</label><br />
+					<input class="paddingLeft" type="text" name="firstName" placeholder="PrÃ©nom" 
+					ng-model='aList.adherentList[aList.currentId].prenom' ng-required="true"><br />
+				</div>
 			</div>
-			<div class="row rowInput">
-				Date de naissance : <input class="paddingLeft" type="date" name="birthDate" 
-				ng-model="aList.adherentList[0].date_naissance" ng-required="true">
+			
+<!-- 			Date de naissance -->
+
+			<label>Date de naissance :</label><br />
+			<input class="paddingLeft" type="date" name="birthDate" 
+			ng-model="aList.adherentList[aList.currentId].date_naissance" ng-required="true"><br />
+
+<!-- 			E-mail -->
+
+			<label>Adresse e-mail :</label><br />
+			<input class="paddingLeft" type="email" name="email" placeholder="E-mail" 
+			ng-model='aList.adherentList[aList.currentId].email' ng-required="true"><br />
+
+<!-- 			Adresse 1 -->
+
+			<div class="row">
+				<div class="col-md-4 col-xs-4">
+					<label>Adresse 1 :</label><br />
+					<input class="paddingLeft col-md-12 col-xs-12" type="text" name="adresse" placeholder="Adresse" 
+					ng-model='aList.adherentList[aList.currentId]["adresse"].ligne1' ng-required="true"><br />
+				</div>
+				
+<!-- 			Adresse 2 -->
+				
+				<div class="col-md-4 col-xs-4">
+					<label>Adresse 2 :</label><br />
+					<input class="paddingLeft col-md-12 col-xs-12" type="text" name="adresse" placeholder="Adresse" 
+					ng-model='aList.adherentList[aList.currentId]["adresse"].ligne2' ng-required="true"><br />
+				</div>		
 			</div>
-			<div class="row rowInput">
-				<input class="paddingLeft" type="email" name="email" placeholder="E-mail" 
-				 ng-model='aList.adherentList[0].email' ng-required="true">
-			</div>
-			<div class="row rowInput">
-				<input class="paddingLeft" type="text" name="adresse" placeholder="Adresse" 
-				 ng-model='aList.adherentList[0]["adresse"].ligne1' ng-required="true">
+			
+<!-- 			Code postal -->
+
+			<div class="row">
+				<div class="col-md-4 col-xs-4">
+					<label>Code postal :</label><br />
 					<input class="paddingLeft" type="text" name="CP" placeholder="Code Postal" 
-				 ng-model='aList.adherentList[0]["adresse"].codepostal' ng-required="true">
+					ng-model='aList.adherentList[aList.currentId]["adresse"].codepostal' ng-required="true"><br />
+				</div>
+	<!-- 			Ville -->
+	
+				<div class="col-md-4 col-xs-4">
+					<label>Ville :</label><br />
 					<input class="paddingLeft" type="text" name="ville" placeholder="Ville" 
-				 ng-model='aList.adherentList[0]["adresse"].ville' ng-required="true">
+					ng-model='aList.adherentList[aList.currentId]["adresse"].ville' ng-required="true"><br />
+				</div>
 			</div>
-			<div class="row rowInput">
-				Date de cotisation : <input class="paddingLeft" type="date" name="subscriptionDate" 
-				 ng-model='aList.adherentList[0]["cotisation"].debut' ng-required="true">
-				<input class="paddingLeft" type="number" name="surbscriptionFee" placeholder="Cotisation" 
-				 ng-model='aList.adherentList[0]["cotisation"].montant' ng-required="true">
+
+<!-- 			Date de cotisation -->
+
+			<div class="row">
+				<div class="col-md-4 col-xs-4">
+					<label>Date de cotisation :</label><br />
+					<input class="paddingLeft" type="date" name="subscriptionDate" 
+					ng-model='aList.adherentList[aList.currentId]["cotisation"].debut' ng-required="true"><br />
+				</div>
+					
+		<!-- 			Montant de la cotisation -->
+		
+				<div class="col-md-4 col-xs-4">
+					<label>Montant de la cotisation :</label><br />
+					<input class="paddingLeft" type="number" name="surbscriptionFee" placeholder="Cotisation" 
+					ng-model='aList.adherentList[aList.currentId]["cotisation"].montant' ng-required="true"><br />
+				</div>
 			</div>
+
+<!-- 			Valider ou annuler form -->
+
 			<div class="col-md-6 col-xs-6 divLeft">
 				<button type="button" class="btn btn-default" id="validateAdherent" ng-click="showme=false">Valider</button>
 				<button type="button" class="btn btn-default" id="cancelAdherent" ng-click="showme=false">Annuler</button>
 			</div>
+			
+<!-- 			Pop up -->
+
 			<div class="col-md-6 col-xs-6 divRight">
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un emprunt</button>
 			</div>
 		</div>
-
-		<div>	
-			<table>
-				<tr ng-repeat='adherent in aList.adherentList'>
-				<td>tutu</td>
-					<td>{{adherent.id}}</td>
-					<td>{{adherent.nom}}</td>
-					<td>{{adherent.prenom}}</td>
-					<td>{{adherent.adresse}}</td>
-					<td>{{adherent.age}}</td>
+	</form>
+	
+	
+	<div class="form-group row">
+		<form name="empruntForm">
+			<input type="text" name="empruntTitle" ng-model="aList.titleFilter" placeholder="Titre" class="col-sm-2">
+		</form>
+	</div>
+	
+	<div class=" row">
+		<div class="col-sm-12 div">
+			<table class="table">
+				<tr>
+					<th>Titre</th>
+					<th>Date emprunt</th>
+					<th>Date retour</th>
+				</tr>
+				
+				<tr ng-repeat="emprunt in aList.adherentList[aList.currentId]['emprunt'] | filter:{media:{titre:aList.titleFilter}} | orderBy:sortType">
+					<td><span ng-bind="emprunt['media'].titre"></td>
+					<td><span ng-bind="emprunt.depart | date: dd-mm-yyyy"></span><span ng-click="sortType='depart'">aaaaaa</span></td>
+					<td ng-bind="emprunt.retour | date: dd-mm-yyyy"></td>
 				</tr>
 			</table>
 		</div>
-		
-</div>
+	</div>
 </div>
