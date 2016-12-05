@@ -17,9 +17,15 @@
 <script src="MediaSearch/mediaSearchController.js"></script>
 <script src="AdherentSearch/adherentSearchController.js"></script>
 <script src="Services/services.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="Adherent/adherent.js"></script>
-
 <title ng-bind="header"></title>
+
 </head>
 <body ng-controller="LoggerCtrl">
 	<div ng-show="showMenu">
@@ -29,6 +35,7 @@
 					<li><a href="#/mediaSearch">Médias</a></li><!--
 					--><li><a href="#/adherentSearch">Adhérents</a></li><!--
 					--><li style="float: right"><a href="" ng-click="LoggerCtrl.disconnect()">Déconnexion</a></li>
+
 				</ul>
 			</div>
 		</nav>
