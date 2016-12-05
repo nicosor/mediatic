@@ -12,11 +12,11 @@ log.config(function($routeProvider)
 
 log.controller('LoginController', function(loginService, $rootScope)
 {
-	$rootScope.header = 'Page de connexion';
 	var log = this;
 	
 	log.connect = function()
 	{
 		loginService.connect();
+		$rootScope.showMenu = loginService.isConnected();
 	}
 });
