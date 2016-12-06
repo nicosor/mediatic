@@ -7,7 +7,7 @@ angular
 				controllerAs : 'adherentSrchCtrl'
 			});
 		})
-		.controller('AdherentSearchController', function($http, getAdherent, $uibModal, $log, $document) {
+		.controller('AdherentSearchController', function($http, getUrl, $uibModal, $log, $document) {
 			var adh = this;
 			var url ='http://192.168.1.93:8090/resource/adherent.recherche'
 			
