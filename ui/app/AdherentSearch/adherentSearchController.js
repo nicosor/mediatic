@@ -28,9 +28,23 @@ angular
 			
 			adh.nextPage = function () {
 				getUrl.getList(url, adh, adh.catalog);
-			}
+			};
+
+		})
+		.controller('modalAdherentSearchController', function ($scop, $uibMobal, $log, currentAdh){
+			var adh = this;
 
 			adh.animationEnabled = true;
+			
+			ctrl.ok = function () {
+				this.curAdh = (currentAdh.getCurrentAdh())
+				ctrl.addBorrow(this.curAdh);
+				$scope.$close(undefined);
+			};
+			
+			adh.cancel = function(){
+				$scope.$close(undefined);
+			};
 			
 			adh.open = function(size, parentSelector){
 				var parentElem = parentSelector ? angular.element($document[0]
@@ -106,32 +120,32 @@ angular
 			};
 		})
 		.component('modalComponent', {
-	templateUrl : 'searchAdherentModal',
-	bindings : {
-		resolve : '<',
-		close : '&',
-		dismiss : '&'
-	},
-	controller : function() {
-		var $ctrl = this;
-
-		$ctrl.$onInit = function() {
-			$ctrl.items = $ctrl.resolve.items;
-			$ctrl.selected = {
-				item : $ctrl.items[0]
+			templateUrl : 'searchAdherentModal',
+			bindings : {
+				resolve : '<',
+				close : '&',
+				dismiss : '&'
+		},
+		controller : function() {
+			var $ctrl = this;
+	
+			$ctrl.$onInit = function() {
+				$ctrl.items = $ctrl.resolve.items;
+				$ctrl.selected = {
+					item : $ctrl.items[0]
+				};
 			};
-		};
-
-		$ctrl.ok = function() {
-			$ctrl.close({
-				$value : $ctrl.selected.item
-			});
-		};
-
-		$ctrl.cancel = function() {
-			$ctrl.dismiss({
-				$value : 'cancel'
-			});
-		};
-	}
+	
+			$ctrl.ok = function() {
+				$ctrl.close({
+					$value : $ctrl.selected.item
+				});
+			};
+	
+			$ctrl.cancel = function() {
+				$ctrl.dismiss({
+					$value : 'cancel'
+				});
+			};
+		}
 });
