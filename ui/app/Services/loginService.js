@@ -6,7 +6,6 @@ angular
 		
 		if($cookies.get('auth') != undefined)
 		{
-			console.log($cookies.get('auth'));
 			connected = true;
 			$http.defaults.headers.common['Authorization'] = 'Basic ' + $cookies.get('auth');
 			$rootScope.showMenu = true;
@@ -15,7 +14,6 @@ angular
 		return {
 			connect : function(login, password)
 			{
-				console.error('toto');
 				var code = btoa(login + ':' + password);
 				var auth = 'Basic ' + code;
 				var config = {
@@ -30,7 +28,7 @@ angular
 						$http.defaults.headers.common['Authorization'] = auth;
 						$cookies.put('auth', code);
 						$rootScope.showMenu = true;
-						$location.url('media/0');
+						$location.url('mediaSearch');
 						return true;
 					},function()
 					{
