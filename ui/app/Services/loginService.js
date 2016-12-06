@@ -2,7 +2,7 @@ angular
 	.module('global')
 	.factory('loginService', function($location)
 	{
-		var myConn = false;
+		var myConn = true;
 		return {
 			connect : function()
 			{
