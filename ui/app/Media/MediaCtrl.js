@@ -1,6 +1,6 @@
-var med = angular.module('myMedia', ['ngRoute', 'global', 'services', 'ngSanitize', 'ui.bootstrap']);
+var media = angular.module('myMedia', ['ngRoute', 'global', 'services', 'ngSanitize', 'ui.bootstrap']);
 
-med.config(function($routeProvider)
+media.config(function($routeProvider)
 {
 	$routeProvider.when('/media/:idMed',
 			{
@@ -10,12 +10,12 @@ med.config(function($routeProvider)
 			});
 });
 
-med.controller('MediaController', function($scope, $http, $routeParams, getUrl)
+media.controller('MediaController', function($scope, $http, $routeParams, getUrl, $uibModal, $log, $document)
 {
 
-	var med = this;
+	var media = this;
 	$scope.showmebis = true;
-	med.modify = function(str)
+	media.modify = function(str)
 	{
 		if(str == 'mod')
 		{
@@ -30,118 +30,80 @@ med.controller('MediaController', function($scope, $http, $routeParams, getUrl)
 		
 	}
 	this.currentId = $routeParams.idMed;
-	med.mediaList = [];
+	media.mediaList = [];
 	var url = 'http://192.168.1.93:8090/resource/media.recherche';
-	getUrl.getList(url, med, med.mediaList);
-	console.log(med.mediaList);
+	getUrl.getList(url, media, media.mediaList);
 	
-	med.open = function(size, parentSelector) {
+	media.open = function(size, parentSelector) {
 		var parentElem = parentSelector ? angular.element($document[0]
 				.querySelector('.modal-demo ' + parentSelector))
 				: undefined;
 		var modalInstance = $uibModal.open({
-			animation : med.animationsEnabled,
+			animation : media.animationsEnabled,
 			ariaLabelledBy : 'modal-title',
 			ariaDescribedBy : 'modal-body',
-			templateUrl : 'MediaSearch/mediaSearchModal.html',
-			controller : 'ModalInstanceCtrl',
-			controllerAs : '$ctrl',
+			templateUrl : 'Media/mediaModal.html',
+			controller : 'ModalCtrl',
+			controllerAs : '$medCtrl',
 			size : size,
 			appendTo : parentElem,
 			resolve : {
 				items : function() {
-					return med.items;
+					return media.items;
 				}
 			}
 		});
 
 		modalInstance.result.then(function(selectedItem) {
-			$ctrl.selected = selectedItem;
+			$medCtrl.selected = selectedItem;
 		}, function() {
 			$log.info('Modal dismissed at: ' + new Date());
 		});
 	};
 
-	med.openComponentModal = function() {
-		var modalInstance = $uibModal.open({
-			animation : $ctrl.animationsEnabled,
-			component : 'modalComponent',
-			resolve : {
-				items : function() {
-					return $ctrl.items;
-				}
-			}
-		});
-
-		modalInstance.result.then(function(selectedItem) {
-			$ctrl.selected = selectedItem;
-		}, function() {
-			$log.info('modal-component dismissed at: ' + new Date());
-		});
-	};
-
-	med.openMultipleModals = function() {
-		$uibModal.open({
-			animation : $ctrl.animationsEnabled,
-			ariaLabelledBy : 'modal-title-bottom',
-			ariaDescribedBy : 'modal-body-bottom',
-			templateUrl : 'stackedModal.html',
-			size : 'sm',
-			controller : function($scope) {
-				$scope.name = 'bottom';
-			}
-		});
-
-		$uibModal.open({
-			animation : $ctrl.animationsEnabled,
-			ariaLabelledBy : 'modal-title-top',
-			ariaDescribedBy : 'modal-body-top',
-			templateUrl : 'stackedModal.html',
-			size : 'sm',
-			controller : function($scope) {
-				$scope.name = 'top';
-			}
-		});
-	};
-
-	med.toggleAnimation = function() {
-		$ctrl.animationsEnabled = !$ctrl.animationsEnabled;
-	};
-}).controller('ModalInstanceCtrl', function($uibModalInstance, items) {
+}).controller('ModalCtrl', function($uibModalInstance, items) {
 	var $ctrl = this;
+	  $ctrl.items = items;
+	  $ctrl.selected = {
+	    item: $ctrl.items[0]
+	  };
 
-	$ctrl.ok = function() {
-		$uibModalInstance.close($ctrl.selected.item);
+	$medCtrl.ok = function() {
+		$uibModalInstance.close($medCtrl.selected.item);
 	};
 
-	$ctrl.cancel = function() {
+	$medCtrl.cancel = function() {
 		$uibModalInstance.dismiss('cancel');
 	};
 }).component('modalComponent', {
-	templateUrl : 'searchMediaModal',
+	templateUrl : 'mediaModal',
 	bindings : {
 		resolve : '<',
 		close : '&',
 		dismiss : '&'
 	},
 	controller : function() {
-		var $ctrl = this;
-
-		$ctrl.$onInit = function() {
-			$ctrl.items = $ctrl.resolve.items;
-			$ctrl.selected = {
-				item : $ctrl.items[0]
+		var $medCtrl = this;
+		$medCtrl.items = items;
+		  $medCtrl.selected = {
+		    item: $medCtrl.items[0]
+		  };
+		  
+		$medCtrl.$onInit = function() {
+			$medCtrl.items = $medCtrl.resolve.items;
+			$medCtrl.selected = {
+				item : $medCtrl.items[0]
 			};
 		};
 
-		$ctrl.ok = function() {
-			$ctrl.close({
-				$value : $ctrl.selected.item
+		$medCtrl.ok = function() {
+			$medCtrl.close({
+				$value : $medCtrl.selected.item
 			});
 		};
 
-		$ctrl.cancel = function() {
-			$ctrl.dismiss({
+		$medCtrl.cancel = function() {
+			$medCtrl.dismiss({
 				$value : 'cancel'
 			});
 		};

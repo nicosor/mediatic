@@ -2,42 +2,65 @@
 <div class="col-sm-offset-2 col-sm-8"">
 	<div class="form-group row">
 		<form name="mediaSearchForm" class="form-inline">
-			<div class="form-group">
-				<input type="text" name="mediaTitle"
-					ng-model="mediaSrchCtrl.titleFilter" placeholder="Titre"
-					class="form-control">
-			<div class="form-group">
-				<input type="text" name="mediaAuthor"
-					ng-model="mediaSrchCtrl.authorFilter" placeholder="Auteur"
-					class="form-control"> 
+			<div class="row">
+				<div class="form-group">
+					<input type="text" name="mediaTitle"
+						ng-model="mediaSrchCtrl.titleFilter" placeholder="Titre"
+						class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="text" name="mediaAuthor"
+						ng-model="mediaSrchCtrl.authorFilter" placeholder="Auteur"
+						class="form-control"> 
+				</div>
+				<div class="form-group">
+					<select name="mediaType"
+						class="form-control"
+						ng-model="mediaSrchCtrl.optionFilter">
+						<option value="Livre">Livre</option>
+						<option value="CD">CD</option>
+						<option value="DVD">DVD</option>
+					</select>
+				</div>	
 			</div>
-			<div class="form-group">
-				<select name="mediaType"
-					class="form-control"
-					ng-model="mediaSrchCtrl.optionFilter">
-					<option value="Livre">Livre</option>
-					<option value="CD">CD</option>
-					<option value="DVD">DVD</option>
-				</select>
-			</div>	
 		</form>
 	</div>
 	<br>
 
-	<div class=" row">
+	<div class=" row" >
 		<div class="col-sm-12 div">
-			<table class="table" infinite-scroll="mediaSrchCtrl.nextPage()" infinite-scroll-use-document-bottom="true">
+			<table class="table" infinite-scroll="mediaSrchCtrl.nextPage()" 
+			infinite-scroll-disabled="mediaSrchCtrl.disableScroll"
+			infinite-scroll-parent="true">
 				<tr>
-					<th>Titre</th>
-					<th>Auteur</th>
-					<th>Type</th>
+					<th>
+						Titre
+						<div ng-click="mediaSrchCtrl.setOrder('titre')">
+							<span ng-show="(mediaSrchCtrl.actualOrder==='titre')" class="glyphicon glyphicon-sort-by-alphabet"></span>
+							<span ng-show="(mediaSrchCtrl.actualOrder==='-titre')" class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+							<span ng-show="(mediaSrchCtrl.actualOrder!=='titre' && mediaSrchCtrl.actualOrder!=='-titre')" class="glyphicon glyphicon-sort"></span>
+						</div>
+					</th>
+					
+					<th>
+						Auteur
+					<div ng-click="mediaSrchCtrl.setOrder('auteur')">
+							<span ng-show="(mediaSrchCtrl.actualOrder=='auteur')" class="glyphicon glyphicon-sort-by-alphabet"></span>
+							<span ng-show="(mediaSrchCtrl.actualOrder=='-auteur')" class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+							<span ng-show="(mediaSrchCtrl.actualOrder!=='auteur' && mediaSrchCtrl.actualOrder!=='-auteur')" class="glyphicon glyphicon-sort"></span>
+						</div>
+					</th>
+					<th>
+						Type
+					</th>
 				</tr>
-					<tr
-						ng-repeat="item in mediaSrchCtrl.catalog | filter:{titre:mediaSrchCtrl.titleFilter} | filter:{auteur:mediaSrchCtrl.authorFilter}  | filter:{type:mediaSrchCtrl.optionFilter}">
-						<td ng-bind="item.titre"></td>
-						<td ng-bind="item.auteur"></td>
-						<td ng-bind="item.type"></td>
-					</tr>
+				<div>
+				<tr ng-repeat="item in mediaSrchCtrl.catalog | filter:{titre:mediaSrchCtrl.titleFilter} | filter:{auteur:mediaSrchCtrl.authorFilter}  | filter:{type:mediaSrchCtrl.optionFilter}">
+					<td ng-bind="item.titre"></td>
+					<td ng-bind="item.auteur"></td>
+					<td ng-bind="item.type"></td>
+				</tr>
+				</div>
 			</table>
 		</div>
 	</div>

@@ -10,6 +10,29 @@ angular.module('services', ['infinite-scroll'])
 						var page = (ctrl.loadedPage===undefined?0:ctrl.loadedPage+1);
 						$http.get(url, {params:{page:page}}).then(function(response) {
 							console.log(page, response.data.length, ctrl.loadedPage, response.data);
+							if(response.data.length == 0) {
+								ctrl.disableScroll= true;
+							}
+							for(var i = 0; i < response.data.length; i++) {
+								liste.push(response.data[i]);
+							} 
+							ctrl.loadedPage = page;
+							defer.resolve();
+						});
+						return previous;
+					});	
+				},
+				getSortedList: function(url, ctrl, liste, sort) {
+					var temp = previous;
+					var defer = $q.defer();
+					previous = defer.promise;
+					temp.then( function() {
+						var page = (ctrl.loadedPage===undefined?0:ctrl.loadedPage+1);
+						$http.get(url, {params:{page:page, tri:sort}}).then(function(response) {
+							console.log(page, response.data.length, ctrl.loadedPage, response.data);
+							if(response.data.length == 0) {
+								ctrl.disableScroll= true;
+							}
 							for(var i = 0; i < response.data.length; i++) {
 								liste.push(response.data[i]);
 							} 
@@ -17,10 +40,22 @@ angular.module('services', ['infinite-scroll'])
 							defer.resolve();
 						});
 					});
-					return previous;
 				}
 			}
 		})
+	.factory('postUrl', function($http) {
+		return {
+			post : function(url, data) {
+				$http.post(url, data)
+				.then(function(response) {
+					console.log("success");
+				},
+				function(response) {
+					console.log("fail");
+				});
+			}
+		}
+	})
 	.factory('getAdherent', function(getUrl){
 		return {
 			getAdherentList : function(url) {

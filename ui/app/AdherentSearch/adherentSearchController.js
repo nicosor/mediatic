@@ -7,7 +7,7 @@ angular
 				controllerAs : 'adherentSrchCtrl'
 			});
 		})
-		.controller('AdherentSearchController', function($http, getUrl, $uibModal, $log, $document) {
+		.controller('AdherentSearchController', function($http, getUrl) {
 			var adh = this;
 			var url ='http://192.168.1.93:8090/resource/adherent.recherche'
 			
@@ -31,14 +31,22 @@ angular
 			};
 
 		})
-		.controller('modalAdherentSearchController', function ($scop, $uibMobal, $log, currentAdh){
+		.controller('ModalAdherentSearchController', function ($scope, $uibModal, $log, currentAdh){
 			var adh = this;
 
 			adh.animationEnabled = true;
 			
-			ctrl.ok = function () {
+			this.newAdherent = {nom : "", 
+					prenom : "",
+					date_naissance : "",
+					email : "",
+					adresse : {ligne1 : "", ligne2 : "", ville : "", codepostal : ""},
+					cotisation : {debut : "", fin : "", montant : ""}
+			};
+			
+			adh.ok = function () {
 				this.curAdh = (currentAdh.getCurrentAdh())
-				ctrl.addBorrow(this.curAdh);
+				adh.addAdherent(this.curAdh);
 				$scope.$close(undefined);
 			};
 			
@@ -47,6 +55,7 @@ angular
 			};
 			
 			adh.open = function(size, parentSelector){
+				
 				var parentElem = parentSelector ? angular.element($document[0]
 						.querySelector('.modal-demo ' + parentSelector))
 						: undefined;
@@ -66,16 +75,16 @@ angular
 					}
 				});
 				
-				modalInstance.result.then(function(selectItem){
-					$ctrl.selected = selectedItem;
+				modalInstance.result.then(function(selectedItem){
+					adh.selected = selectedItem;
 				}, function(){
 					$log.info('Modal dismissed at: ' + new Date());
 				});
 			};
 			
-			adh.openComponentModal = function() {
+			this.openComponentModal = function() {
 				var modalInstance = $uibModal.open({
-					animation : $ctrl.animationEnabled,
+					animation : adh.animationEnabled,
 					component : 'modalComponent',
 					resolve : {
 						items : function(){
@@ -85,13 +94,13 @@ angular
 				});
 				
 				modalInstance.result.then(function(selectedItem) {
-					$ctrl.selected = selectedItem;
+					adh.selected = selectedItem;
 				}, function() {
 					$log.info('modal-component dismissed at: ' + new Date());
 				});
 			};
 
-			adh.openMultipleModals = function() {
+			this.openMultipleModals = function() {
 				$uibModal.open({
 					animation : $ctrl.animationsEnabled,
 					ariaLabelledBy : 'modal-title-bottom',
@@ -115,8 +124,8 @@ angular
 				});
 			};
 
-			adh.toggleAnimation = function() {
-				$ctrl.animationsEnabled = !$ctrl.animationsEnabled;
+			this.toggleAnimation = function() {
+				adh.animationsEnabled = !adh.animationsEnabled;
 			};
 		})
 		.component('modalComponent', {
@@ -127,23 +136,23 @@ angular
 				dismiss : '&'
 		},
 		controller : function() {
-			var $ctrl = this;
+			var $adh = this;
 	
-			$ctrl.$onInit = function() {
-				$ctrl.items = $ctrl.resolve.items;
-				$ctrl.selected = {
+			$adh.$onInit = function() {
+				$adh.items = $adh.resolve.items;
+				$adh.selected = {
 					item : $ctrl.items[0]
 				};
 			};
 	
-			$ctrl.ok = function() {
-				$ctrl.close({
-					$value : $ctrl.selected.item
+			$adh.ok = function() {
+				$adh.close({
+					$value : $adh.selected.item
 				});
 			};
 	
-			$ctrl.cancel = function() {
-				$ctrl.dismiss({
+			$adh.cancel = function() {
+				$adh.dismiss({
 					$value : 'cancel'
 				});
 			};

@@ -1,14 +1,7 @@
-#readOnly.moins,
-	#modifyMedia:not(.moins)
-{
-	display : none;
-}
-
 input.padding
 {
 	padding-left : 5px ;
 }
-
 
 table
 {
@@ -22,7 +15,7 @@ tr:nth-child(even)
 
 div#noPadding
 {
-	padding-right : 0;
+	padding-right : 5px;
 }
 
 span.libelle
