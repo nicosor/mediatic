@@ -9,22 +9,22 @@ angular.module('adherent.services',[])
 				return currentAdh;
 			}
 		}
-	})
-	.factory('listAdh', function(getAdherent, currentAdh){
-		var listAdh = [];
-		return {
-			setListAdh : function(url) {
-				var promise = getAdherent.getAdherentList(url);
-				return promise.then(function(response) {
-					console.log(response.data)
-					listAdh = response.data;
-					console.log('set' + listAdh);
-					
-				});
-			},
-			getListAdh : function() {
-				console.log('get' + listAdh);
-				return listAdh;
-			}
-		}
 	});
+////	.factory('listAdh', function(getAdherent, currentAdh){
+////		var listAdh = [];
+////		return {
+////			setListAdh : function(url) {
+////				var promise = getAdherent.getAdherentList(url, fdgd, listAdh);
+////				return promise.then(function(response) {
+////					console.log(response.data)
+////					listAdh = response.data;
+////					console.log('set' + listAdh);
+////					
+////				});
+////			},
+////			getListAdh : function() {
+////				console.log('get' + listAdh);
+////				return listAdh;
+////			}
+////		}
+//	});
