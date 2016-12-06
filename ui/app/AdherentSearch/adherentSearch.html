@@ -6,9 +6,10 @@
 	margin-left: 0px;
 }
 
-.div {
-	overflow-y: auto;
-}
+.listeAdh {
+	height: 500px;
+ 	overflow-y: auto; 
+} 
 
 table {
 	height: 100%;
@@ -36,7 +37,7 @@ tr:nth-child(even) {
 	<h1 style="text-align: center">Recherche d'adhérent</h1>
 </div>
 <br>
-<div class="col-sm-offset-2 col-sm-8">
+<div class="col-sm-offset-2 col-sm-8" ng-controller="modalAdherentSearchController as mCtrl">
 	<div class="form-group row">
 		<input type="number" name="id" ng-model="adherentSrchCtrl.idFilter" placeholder="Identifiant" class="col-sm-2">
 		<input type="text" name="name" ng-model="adherentSrchCtrl.nameFilter" placeholder="Nom" class="col-sm-offset-1 col-sm-4"> 
@@ -44,7 +45,7 @@ tr:nth-child(even) {
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-sm-12 div">
+		<div class="listeAdh col-sm-12 div" >
 			<table class="table" infinite-scroll="adherentSrchCtrl.nextPage()" infinite-scroll-use-document-bottom="true">
 				<thead>
 					<tr>
@@ -72,7 +73,7 @@ tr:nth-child(even) {
 	</div>
 	<div class="row"><br>
 		<div>
-			<button type="button" class="btn btn-default" style="float:right" ng-click="adherentSrchCtrl.open()">Ajouter un adhérent</button>
+			<button type="button" class="btn btn-default" style="float:right" ng-click="mCtrl.open()">Ajouter un adhérent</button>
 		</div>
 	</div>
 </div>

@@ -7,7 +7,8 @@ angular
 				controllerAs : 'adherentSrchCtrl'
 			});
 		})
-		.controller('AdherentSearchController', function() {
+		.controller('AdherentSearchController', function($http, getUrl) {
+			var adh = this;
 			var url ='http://192.168.1.93:8090/resource/adherent.recherche'
 			
 			adh.catalog = [];
@@ -30,7 +31,7 @@ angular
 			};
 
 		})
-		.controller('modalAdherentSearchController', function ($scop, $uibMobal, $log, currentAdh){
+		.controller('ModalAdherentSearchController', function ($scop, $uibMobal, $log, currentAdh){
 			var adh = this;
 
 			adh.animationEnabled = true;
@@ -72,7 +73,7 @@ angular
 				});
 			};
 			
-			adh.openComponentModal = function() {
+			this.openComponentModal = function() {
 				var modalInstance = $uibModal.open({
 					animation : $ctrl.animationEnabled,
 					component : 'modalComponent',
@@ -90,7 +91,7 @@ angular
 				});
 			};
 
-			adh.openMultipleModals = function() {
+			this.openMultipleModals = function() {
 				$uibModal.open({
 					animation : $ctrl.animationsEnabled,
 					ariaLabelledBy : 'modal-title-bottom',
@@ -114,7 +115,7 @@ angular
 				});
 			};
 
-			adh.toggleAnimation = function() {
+			this.toggleAnimation = function() {
 				$ctrl.animationsEnabled = !$ctrl.animationsEnabled;
 			};
 		})
