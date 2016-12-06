@@ -19,7 +19,7 @@ li.menu a{
 }
 
 li.menu a:hover:not(.active) {
-    background-color: #111;
+    background-color: #800080;
 }
 
 body .navbar-brand, .navbar-nav > li > a {
@@ -28,7 +28,7 @@ body .navbar-brand, .navbar-nav > li > a {
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
 	color: silver;
-    background-color: black;
+    background-color: #800080;
 }
 
 body .navbar-default .navbar-nav > li > a {
