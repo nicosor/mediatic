@@ -7,7 +7,6 @@
 }
 
 .div {
-	height: 500px;
 	overflow-y: auto;
 }
 
@@ -46,7 +45,7 @@ tr:nth-child(even) {
 	<br>
 	<div class="row">
 		<div class="col-sm-12 div">
-			<table class="table">
+			<table class="table" infinite-scroll="adherentSrchCtrl.nextPage()" infinite-scroll-use-document-bottom="true">
 				<thead>
 					<tr>
 						<th>Identifiant</th>
@@ -61,7 +60,10 @@ tr:nth-child(even) {
 						<td ng-bind="item.id"></td>
 						<td><a href="#/adherent/{{item.id}}" ng-bind="item.nom + ' ' + item.prenom"></a></td>
 						<td ng-bind="item.date_naissance | date:'dd/MM/yyyy'"></td>
-						<td ng-bind="item.cotisation"></td>
+						<td>
+							<span ng-show="adherentSrchCtrl.checkCotisation(item)" class="glyphicon glyphicon-ok-circle" style="color:green"></span>
+							<span ng-show="!adherentSrchCtrl.checkCotisation(item)" class="glyphicon glyphicon-ban-circle" style="color:red"></span>
+						</td>
 						<td ng-bind="item.emprunt.length"></td>
 					</tr>
 				</tbody>
@@ -70,7 +72,7 @@ tr:nth-child(even) {
 	</div>
 	<div class="row"><br>
 		<div>
-			<button type="button" class="btn btn-default" style="float:right" data-toggle="modal" data-target="#myModal">Ajouter un adhérent</button>
+			<button type="button" class="btn btn-default" style="float:right" ng-click="adherentSrchCtrl.open()">Ajouter un adhérent</button>
 		</div>
 	</div>
 </div>
