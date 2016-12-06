@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<!-- Modal -->
+
+<!-- Modal content-->
+<div class="modal-content col-sm-9 col-sm-offset-1">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" ng-click="$medCtrl.cancel()">&times;</button>
+		<h2 class="modal-title">Ajouter un prêt</h2>
+	</div>
+	<div class="modal-body">
+		<label>Emprunteur :</label>
+		<div class="row form-group noPaddingLeft">
+			<input type="text" name="nomEmprunteur" placeholder="nom emprunteur"
+				class="col-sm-5 col-sm-offset-1 noPaddingLeft" ng-model="$medCtrl.nomEmprunteur">
+		</div>
+		<div class="row form-group noPaddingLeft">
+			<input type="text" name="prenomEmprunteur" placeholder="prenom emprunteur"
+				class="col-sm-5 col-sm-offset-1 noPaddingLeft" ng-model="$medCtrl.prenomEmprunteur">
+		</div>
+		<label>Date d'emprunt :</label>
+		<div class="row form-group noPaddingLeft">
+			<input type="date" name="Titre" class="col-sm-5 col-sm-offset-1 noPaddingLeft" ng-model="$medCtrl.DateEmprunt">
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="$medCtrl.ok()">Valider</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="$medCtrl.cancel()">Annuler</button>
+	</div>
+</div>
