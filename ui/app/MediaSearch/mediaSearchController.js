@@ -9,15 +9,41 @@ angular.module('mediaSearch', [ 'ngRoute', 'services', 'ngSanitize', 'ui.bootstr
 		'mediaSearchController',
 		function($http, getUrl, $uibModal, $log, $document) {
 			var med = this;
-			med.httpCount=0;
+			med.disableScroll=false;
 			med.catalog = [];
-			console.log("test");
+			med.actualOrder=undefined;
+			med.sort = false;
+			med.loadedPage=0;
+			
+			med.setOrder = function (order) {
+				if(order === med.actualOrder){
+					med.actualOrder = '-' + order;
+				} else {
+					med.actualOrder = order;
+				}
+				med.sort = true;
+				med.catalog = [];
+				med.loadedPage=0;
+				getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog, med.actualOrder);
+				
+			}
+
 			getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog);
 
 			med.animationsEnabled = true;
 			
 			med.nextPage = function () {
-				getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog);
+				if(med.sort) {
+					getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog, med.actualOrder);
+				} else {
+					getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog);
+				}
+				
+			}
+			
+			med.post = function(data) {
+				postUrl.post("http://192.168.1.93:8090/resource/media.cration", data);
+				ok();
 			}
 
 			med.open = function(size, parentSelector) {
