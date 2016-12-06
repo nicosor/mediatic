@@ -25,7 +25,7 @@
 
 <div class="content" ng-controller="InputDropdownController as dropdownCtrl">
     <form name="demoFormStrings" ng-submit="dropdownCtrl.submitFormStrings()" novalidate="">
-      <input-dropdown input-placeholder="Country string" input-name="country-strings" input-required="true" selected-item="dropdownCtrl.countryString" default-dropdown-items="dropdownCtrl.defaultDropdownStrings" filter-list-method="dropdownCtrl.filterStringList(userInput)"
+      <input-dropdown input-placeholder="Titre" input-name="Titre" input-required="true" selected-item="dropdownCtrl.titleString" default-dropdown-items="dropdownCtrl.test" filter-list-method="dropdownCtrl.filterStringList(userInput)"
       item-selected-method="dropdownCtrl.itemStringSelected(item)"></input-dropdown>
       <button type="submit" ng-disabled="demoFormStrings.$invalid">Submit</button>
     </form>

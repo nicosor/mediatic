@@ -1,15 +1,12 @@
-    var demoApp = angular.module('inputDropdownDemo', ['inputDropdown']);
-
-    demoApp.controller('InputDropdownController', [
-      '$scope',
-      '$q',
-      function($scope, $q) {
+angular.module('inputDropdownDemo', ['inputDropdown', 'adherent.services'])
+	.controller('InputDropdownController', ['$scope','$q', 'mediaDropDown',
+      function($scope, $q, mediaDropDown) {
         var self = this;
         
         self.stringMessage = '';
         self.objectMessage = '';
         
-        self.countryString = null; // Holds the selected in demoFormStrings, set with attribute 'selected-item'
+        self.titleString = null; // Holds the selected in demoFormStrings, set with attribute 'selected-item'
         self.countryObject = null; // Holds the selected in demoFormObjects, set with attribute 'selected-item'
 
         // Pass strings to the dropdown for simple usage
@@ -51,7 +48,12 @@
             return '{readableName: ' + this.readableName + ', countryCode: ' + this.countryCode + ', id: ' + this.id + '}';
           }
         }];
-
+		  this.test = [];
+		  this.titre = "";
+		  var url = 'http://192.168.1.93:8090/resource/media.recherche';
+		  mediaDropDown.getMediaList(url, this, this.test).then (function() {
+			  console.log("yolo", self.test)   
+		  });
 
         // Filter method is passed with attribute 'filter-list-method="method(userInput)"'.
         // Called on the onchange event from the input field. Should return a promise resolving with an array of items to show in the dropdown.
@@ -72,9 +74,9 @@
           var filter = $q.defer();
           var normalisedInput = userInput.toLowerCase();
 
-          var filteredArray = self.defaultDropdownObjects.filter(function(country) {
-            var matchCountryName = country.readableName.toLowerCase().indexOf(normalisedInput) === 0;
-            var matchCountryCode = country.countryCode.toLowerCase().indexOf(normalisedInput) === 0;
+          var filteredArray = self.defaultDropdownObjects.filter(function(media) {
+            var matchCountryName = media.readableName.toLowerCase().indexOf(normalisedInput) === 0;
+//            var matchCountryCode = country.countryCode.toLowerCase().indexOf(normalisedInput) === 0;
             return matchCountryName || matchCountryCode;
           });
 
@@ -97,8 +99,8 @@
 
         self.submitFormStrings = function() {
           if ($scope.demoFormStrings.$valid) {
-            console.log('Submit form STRINGS with country:', self.countryString);
-            self.stringMessage = 'Submit form STRINGS with country: ' + self.countryString;
+            console.log('Submit form STRINGS with country:', self.titleString);
+            self.stringMessage = 'Submit form STRINGS with country: ' + self.titleString;
           }
         };
 

@@ -8,7 +8,7 @@ angular.module('adherent', ['ngRoute', 'services', 'ngSanitize', 'ui.bootstrap',
 		});
 	})
 
-	.controller('modalAdherentController', function ($scope, $uibModal, $log, currentAdh) {
+	.controller('modalAdherentController', function ($scope, $uibModal, $log, currentAdh, mediaDropDown) {
 		  var ctrl = this;
 		  
 		  this.mydata = {titre : "", date : ""};
@@ -20,6 +20,12 @@ angular.module('adherent', ['ngRoute', 'services', 'ngSanitize', 'ui.bootstrap',
 			  console.log(curAdh['emprunt'])
 		  };
 	
+//		  this.test = [];
+//		  this.titre = "";
+//		  var url = 'http://192.168.1.93:8090/resource/media.recherche';
+//		  mediaDropDown.getMediaList(url, this, this.test).then (function() {
+//			  console.log("yolo", ctrl.test)   
+//		  });
 		  
 		  ctrl.ok = function () {
 			  this.curAdh = (currentAdh.getCurrentAdh())
@@ -147,7 +153,6 @@ angular.module('adherent', ['ngRoute', 'services', 'ngSanitize', 'ui.bootstrap',
 		var url = 'http://192.168.1.93:8090/resource/adherent.recherche';
 		this.adherentList = [];
 		getUrl.getList(url, this, this.adherentList).then (function() {
-			console.log("toto" , ctrl.adherentList)
 			for (var i = 0 in ctrl.adherentList) {
 				ctrl.adherentList[i].date_naissance = new Date(ctrl.adherentList[i].date_naissance);
 				ctrl.adherentList[i]["cotisation"].debut = new Date(ctrl.adherentList[i]["cotisation"].debut);
