@@ -24,7 +24,7 @@ angular.module('mediaSearch', [ 'ngRoute', 'services', 'ngSanitize', 'ui.bootstr
 				med.sort = true;
 				med.catalog = [];
 				med.loadedPage=0;
-				getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog, med.actualOrder);
+				getUrl.getSortedList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog, med.actualOrder);
 				
 			}
 
@@ -33,8 +33,9 @@ angular.module('mediaSearch', [ 'ngRoute', 'services', 'ngSanitize', 'ui.bootstr
 			med.animationsEnabled = true;
 			
 			med.nextPage = function () {
+				console.log(med.sort);
 				if(med.sort) {
-					getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog, med.actualOrder);
+					getUrl.getSortedList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog, med.actualOrder);
 				} else {
 					getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog);
 				}

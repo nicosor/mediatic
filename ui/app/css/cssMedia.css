@@ -11,8 +11,8 @@ input.padding
 
 .div
 {
-	height: 500px;
-	overflow-y:auto;
+	max-height: 500px;
+	overflow-y:scroll;
 }
 
 table
@@ -32,10 +32,10 @@ div#noPadding
 
 span.libelle
 {
-	font-size : 1.125vh;
+	font-size : 1vh;
 }
 
 span.info
 {
-	font-size : 1.8125vh;
+	font-size : 1.5vh;
 }

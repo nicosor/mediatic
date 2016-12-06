@@ -12,7 +12,7 @@
 <!-- Affichage information adhérent -->
 
 
-<div id="displayAdherent" class="col-md-offset-2 col-md-8 mainDivRight" >
+<div id="displayAdherent" class="col-md-offset-2 col-md-8 mainDivRight" ng-controller="modalAdherentController as mctrl">
 	<div id="readOnly" ng-hide="showme">
 	
 <!-- 		Nom -->
@@ -57,7 +57,7 @@
 <!-- 		Pop up -->
 
 		<div class="col-md-6 col-xs-6 divRight">
-			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un emprunt</button>
+			<button type="button" class="btn btn-default" style="float: right" ng-click="mctrl.open()">Ajouter un emprunt</button>
 		</div>
 	</div>
 	
@@ -160,7 +160,7 @@
 <!-- 			Pop up -->
 
 			<div class="col-md-6 col-xs-6 divRight">
-				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un emprunt</button>
+				<button type="button" class="btn btn-default" style="float: right" ng-click="mctrl.open()">Ajouter un emprunt</button>
 			</div>
 		</div>
 	</form>
@@ -181,9 +181,9 @@
 					<th>Date retour</th>
 				</tr>
 				
-				<tr ng-repeat="emprunt in aList.adherentList[aList.currentId]['emprunt'] | filter:{media:{titre:aList.titleFilter}} | orderBy:sortType">
+				<tr ng-repeat="emprunt in aList.adherentList[aList.currentId]['emprunt'] | filter:{media:{titre:aList.titleFilter}}">
 					<td><span ng-bind="emprunt['media'].titre"></td>
-					<td><span ng-bind="emprunt.depart | date: dd-mm-yyyy"></span><span ng-click="sortType='depart'">aaaaaa</span></td>
+					<td ng-bind="emprunt.depart | date: dd-mm-yyyy"></td>
 					<td ng-bind="emprunt.retour | date: dd-mm-yyyy"></td>
 				</tr>
 			</table>

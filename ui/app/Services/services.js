@@ -19,8 +19,8 @@ angular.module('services', ['infinite-scroll'])
 							ctrl.loadedPage = page;
 							defer.resolve();
 						});
-					});
-					
+						return previous;
+					});	
 				},
 				getSortedList: function(url, ctrl, liste, sort) {
 					var temp = previous;
@@ -72,6 +72,5 @@ angular.module('services', ['infinite-scroll'])
 					return resp;
 				});
 			}
-		}
-				
+		}		
 	})
