@@ -7,11 +7,11 @@ angular
 				controllerAs : 'adherentSrchCtrl'
 			});
 		})
-		.controller('AdherentSearchController', function($http, getAdherent) {
+		.controller('AdherentSearchController', function() {
 			var url ='http://192.168.1.93:8090/resource/adherent.recherche'
-			getAdherent.getAdherentList(url).then(function (liste) {
-				adh.catalog = liste;
-			});
+			
+			adh.catalog = [];
+			getUrl.getList(url, this, adh.catalog);
 			
 			adh.getFilter = function(){
 				return {
@@ -24,9 +24,15 @@ angular
 			adh.checkCotisation = function(item){
 				return item.cotisation.fin > new Date();
 			};
+			
+			adh.nextPage = function () {
+				getUrl.getList(url, adh, adh.catalog);
+			};
+
 		})
 		.controller('modalAdherentSearchController', function ($scop, $uibMobal, $log, currentAdh){
 			var adh = this;
+
 			adh.animationEnabled = true;
 			
 			ctrl.ok = function () {
@@ -111,9 +117,6 @@ angular
 			adh.toggleAnimation = function() {
 				$ctrl.animationsEnabled = !$ctrl.animationsEnabled;
 			};
-		})
-		.controller('ModalInstanceCtrl', function($uibModalInstance, items) {
-			var $ctrl = this;
 		})
 		.component('modalComponent', {
 			templateUrl : 'searchAdherentModal',

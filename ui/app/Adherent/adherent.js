@@ -139,14 +139,24 @@ angular.module('adherent', ['ngRoute', 'services', 'ngSanitize', 'ui.bootstrap',
 				};
 			}
 	})
-	.controller('AdherentController', function($http, $routeParams, getAdherent, currentAdh, listAdh) {
+	.controller('AdherentController', function($http, $routeParams, currentAdh, getUrl) {
 		
 		var ctrl = this;
 		
 		this.currentId = $routeParams.idAdh;
 		var url = 'http://192.168.1.93:8090/resource/adherent.recherche';
-		listAdh.setListAdh(url);
-		this.adherentList = listAdh.getListAdh();
-		currentAdh.setCurrentAdh(ctrl.adherentList[ctrl.currentId]);
-		console.log(adherentList)
+		this.adherentList = [];
+		getUrl.getList(url, this, this.adherentList).then (function() {
+			console.log("toto" , ctrl.adherentList)
+			for (var i = 0 in ctrl.adherentList) {
+				ctrl.adherentList[i].date_naissance = new Date(ctrl.adherentList[i].date_naissance);
+				ctrl.adherentList[i]["cotisation"].debut = new Date(ctrl.adherentList[i]["cotisation"].debut);
+				ctrl.adherentList[i]["cotisation"].fin = new Date(ctrl.adherentList[i]["cotisation"].fin);
+				for (var j = 0 in ctrl.adherentList[i]["emprunt"]) {
+					ctrl.adherentList[i]["emprunt"][j].depart = new Date(ctrl.adherentList[i]["emprunt"][j].depart);
+					ctrl.adherentList[i]["emprunt"][j].retour = new Date(ctrl.adherentList[i]["emprunt"][j].retour);
+				};
+			};
+		});
+
 });
