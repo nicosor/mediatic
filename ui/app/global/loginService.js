@@ -1,33 +1,48 @@
 angular
 	.module('global')
-	.factory('loginService', function($location, $cookies)
+	.factory('loginService', function($http, $location, $cookies, $rootScope)
 	{
-		var myConn;
-		if($cookies.get('isConnected') != undefined)
-		{
-			console.log('cookieVar '+ $cookies.get('isConnected'));
-			myConn = $cookies.get('isConnected');
-		}
-		else
-		{
-			myConn = false;
-		}
+		var connected;
 		
 		return {
-			connect : function()
+			connect : function(login, password)
 			{
-				$location.url('/media');
-				myConn = true;
-				$cookies.put('isConnected', myConn);
+				var auth = 'Basic ' + btoa(login + ' : ' + password);
+				var config = {
+						headers : {
+							'Authorization' : auth
+						}
+				};
+				$http.get('http://192.168.1.93:8090/resource/connexion.rights', config)
+					.then(function()
+					{
+						connected = true;
+						$http.defaults.headers.common['Authorization'] = auth;
+						$cookies.put('isConnected', connected);
+						$rootScope.showMenu = $cookies.get('isConnected');
+						$location.url('media/0');
+						return true;
+					},function()
+					{
+						connected = false;
+						$http.defaults.headers.common['Authorization'] = 'Basic';
+						return false;
+					});
+			},
+			
+			isConnected : function()
+			{
+				console.log(connected);
+				return connected;
 			},
 			
 			disconnect : function()
 			{
-				$location.url('/login');
-				myConn = false;
+				connected = false;
+				$http.defaults.headers.common['Authorization'] = 'Basic';
 				$cookies.remove('isConnected');
-				console.log('disconn '+ myConn);
-
-			}		
+				$location.url('login');
+				return false;
+			}
 		}
 	});

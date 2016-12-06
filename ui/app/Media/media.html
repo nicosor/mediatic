@@ -1,322 +1,108 @@
 <meta charset="UTF8">
 <script>
-	$window.document.title('Fiche Media');
+	$window.document.title('Fiche ' + {{MedCtrl.mediaList[MedCtrl.currentId].titre}});
 </script>
+
+<!-- Affichage information média -->
+
 <div class="container-fluid form-group">
-		<div class="row">
-			<div class="form-group col-sm-12 text-center">
-				<h1>Fiche DeadPool</h1>
+	<div class="row">
+		<div class="form-group col-sm-12 text-center">
+			<h2 ng-bind="'Fiche ' + MedCtrl.mediaList[MedCtrl.currentId].titre"></h2>
+		</div>
+	</div>	
+	<br>
+</div>
+<div class="col-sm-offset-2 col-sm-8 form-group">
+	<div id="readOnly">
+		<form class="form-horizontal">
+			<div class="form-group" ng-show="showmebis">
+				<div class="col-xs-5 col-sm-4"><span class="libelle">Titre</span> : <span class="info" ng-bind="MedCtrl.mediaList[MedCtrl.currentId].titre"></span></div>
+				<div class="col-xs-5 col-sm-4"><span class="libelle">Auteur</span> : <span class="info" ng-bind="MedCtrl.mediaList[MedCtrl.currentId].auteur"></span></div>
+				<div class="col-xs-4 col-sm-4"><span class="libelle">Type :</span> <span class="info" ng-bind="MedCtrl.mediaList[MedCtrl.currentId].type"></span></div>
 			</div>
-		</div>	
-		<br>
+			<div class="form-group">
+				<div class="col-xs-6 col-sm-6">
+					<button type="button" class="btn btn-default" ng-click="MedCtrl.modify('mod')">Modifier</button>
+				</div>
+			</div>
+		</form>
 	</div>
-	<div class="col-sm-offset-2 col-sm-8 form-group">
-		<div id="readOnly">
-			<form class="form-horizontal">
-				<div class="form-group">
-					<div class="col-xs-5 col-sm-4"><span class="libelle">Titre</span> : <span class="info">Deadpool</span></div>
-					<div class="col-xs-5 col-sm-4"><span class="libelle">Auteur</span> : <span class="info">Rob Liefeld</span></div>
-					<div class="col-xs-4 col-sm-4"><span class="libelle">Type :</span> <span class="info">livre</span></div>
+	<div ng-show="showme">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="col-sm-4">
+					<input type="text" class="form-control padding" placeholder="Titre">
 				</div>
-				<div class="form-group">
-					<div class="col-xs-6 col-sm-6">
-						<button type="button" class="btn btn-default" id="modifyMediaButton">Modifier</button>
-					</div>
-					<div class="col-xs-6 col-sm-6 text-right" id="noPadding">
-						<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un prêt</button>
-					</div>
+				<div class="col-sm-4">
+					<input type="text" class="form-control padding" placeholder="Auteur">
 				</div>
-			</form>
-		</div>
-		<div id="modifyMedia">
-			<form class="form-horizontal">
-				<div class="form-group">
-					<div class="col-sm-4">
-						<input type="text" class="form-control padding" placeholder="Titre">
-					</div>
-					<div class="col-sm-4">
-						<input type="text" class="form-control padding" placeholder="Auteur">
-					</div>
-					<div class="col-sm-4">
-					  <select class="form-control">
-					  	<option selected disabled>Type</option>
-					    <option>Livre</option>
-					    <option>CD</option>
-					    <option>DVD</option>
-					  </select>
-					</div>
+				<div class="col-sm-4">
+				  <select class="form-control">
+				  	<option selected disabled>Type</option>
+				    <option>Livre</option>
+				    <option>CD</option>
+				    <option>DVD</option>
+				  </select>
 				</div>
-				<div class="form-group">	
+			</div>
+			<div class="form-group">	
+			</div>
+			<div class="form-group">
+				<div class="col-sm-12">
+					<button type="button" class="btn btn-default" id="validateMedia" ng-click="MedCtrl.modify('val')">Valider</button>
+					<button type="button" class="btn btn-default" id="cancelMedia" ng-click="MedCtrl.modify('ann')">Annuler</button>
 				</div>
-				<div class="form-group">
-					<div class="col-sm-12">
-						<button type="button" class="btn btn-default" id="validateMedia">Valider</button>
-						<button type="button" class="btn btn-default" id="cancelMedia">Annuler</button>
-					</div>
-				</div>
-			</form>
-		</div>
-		<br>
+			</div>
+		</form>
 	</div>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  		<div class="modal-dialog" role="document">
-   			 <div class="modal-content col-sm-8 col-sm-offset-2">
-      			<div class="modal-header">
-        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        				<h2 class="modal-title" id="myModalLabel">Nouveau prêt</h2>
-     			</div>
-      			<div class="modal-body">
-      				<form class="form-horizontal">
-						<div class="form-group">
-							<div class="col-sm-12">
-								<input type="text" class="form-control padding" placeholder="Nom adherent">
-							</div>
+	<br>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		 <div class="modal-content col-sm-8 col-sm-offset-2">
+   			<div class="modal-header">
+     			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+     				<h2 class="modal-title" id="myModalLabel">Nouveau prêt</h2>
+  			</div>
+   			<div class="modal-body">
+   				<form class="form-horizontal">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<input type="text" class="form-control padding" placeholder="Nom adherent">
 						</div>
-						<div class="form-group">
-						<div class="col-sm-5">
-							Date de l'emprunt
+					</div>
+					<div class="form-group">
+					<div class="col-sm-5">
+						Date de l'emprunt
+					</div>
+						<div class="col-sm-7">
+							<input type="date" class="form-control padding">
 						</div>
-							<div class="col-sm-7">
-								<input type="date" class="form-control padding">
-							</div>
-						</div>
-					</form>
-     			</div>
-      			<div class="modal-footer">
-       				 <button type="button" class="btn btn-default">Ajouter</button>
-       				 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-      			</div>
-    		</div>
- 		 </div>
+					</div>
+				</form>
+  			</div>
+   			<div class="modal-footer">
+    				 <button type="button" class="btn btn-default">Ajouter</button>
+    				 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+   			</div>
+ 		</div>
 	</div>
-	<div class="col-sm-offset-2 col-sm-8 div">
-		<table class="table">
-		   <tr>
-		      <th ><span class="col-sm-10">Titre</span> <span id="spanTriTitre" class="glyphicon glyphicon-sort col-sm-1"></span></th>
-		      <th><span class="col-sm-10">Date Emprunt</span> <span id="spanTriDateEmprunt" class="glyphicon glyphicon-sort col-sm-1"></span></th>
-		      <th><span class="col-sm-10">Date retour</span> <span id="spanTriDateRetour" class="glyphicon glyphicon-sort col-sm-1"></span></th>
-		   </tr>
-		   <tr>
-		      <td>LOT</td>
-		      <td>12/12/1212</td>
-		      <td>13/13/1313</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		   <tr>
-		      <td>My little poney collector edtition</td>
-		      <td>11/11/1111</td>
-		      <td>14/14/1414</td>
-		   </tr>
-		</table>
-	</div>
-	<div class="col-sm-1">
-	</div>
+</div>
+<div class="col-sm-offset-2 col-sm-8 div">
+	<table class="table">
+	   <tr>
+	      <th ><span class="col-sm-10">Emprunteur</span> <span id="spanTriTitre" class="glyphicon glyphicon-sort col-sm-1"></span></th>
+	      <th><span class="col-sm-10">Date Emprunt</span> <span id="spanTriDateEmprunt" class="glyphicon glyphicon-sort col-sm-1"></span></th>
+	      <th><span class="col-sm-10">Date retour</span> <span id="spanTriDateRetour" class="glyphicon glyphicon-sort col-sm-1"></span></th>
+	   </tr>
+	   <tr ng-repeat="emp in MedCtrl.mediaList[MedCtrl.currentId]['emprunteurs']">
+	   		<td ng-bind="emp['adherent'].prenom + ' ' + emp['adherent'].nom"></td>
+	   		<td ng-bind="emp.depart | date: 'dd-MM-yyyy'"></td>
+	   		<td ng-bind="emp.retour | date: 'dd-MM-yyyy'"></td>
+	   </tr>
+	</table>
+</div>
+<div class="col-sm-offset-2 col-sm-8 text-right form-group" id="noPadding">
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un prêt</button>
+</div>

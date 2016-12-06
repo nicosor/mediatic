@@ -25,6 +25,18 @@ angular.module('services', [])
 					return resp;
 				});
 			}
+		}		
+	})
+	.factory('getMedia', function(getUrl)
+	{
+		return {
+			getMediaList : function(url)
+			{
+				return getUrl.getList(url).then(function(resp)
+				{
+					return resp;
+				});
+			}
 		}
-				
+			
 	})

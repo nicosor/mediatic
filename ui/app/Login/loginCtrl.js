@@ -10,14 +10,12 @@ log.config(function($routeProvider)
 			});
 });
 
-log.controller('LoginController', function(loginService, $rootScope, $cookies)
+log.controller('LoginController', function(loginService, $rootScope)
 {
 	var log = this;
 	
-	log.connect = function()
+	log.connect = function(login, password)
 	{
-		loginService.connect();
-		console.log('cookieConnect '+ $cookies.get('isConnected'))
-		$rootScope.showMenu=$cookies.get('isConnected');
+		loginService.connect(login, password);
 	}
 });
