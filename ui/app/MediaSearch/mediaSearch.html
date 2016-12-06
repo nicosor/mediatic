@@ -26,18 +26,18 @@
 
 	<div class=" row">
 		<div class="col-sm-12 div">
-			<table class="table">
+			<table class="table" infinite-scroll="mediaSrchCtrl.nextPage()" infinite-scroll-use-document-bottom="true">
 				<tr>
 					<th>Titre</th>
 					<th>Auteur</th>
 					<th>Type</th>
 				</tr>
-				<tr
-					ng-repeat="item in mediaSrchCtrl.catalog | filter:{titre:mediaSrchCtrl.titleFilter} | filter:{auteur:mediaSrchCtrl.authorFilter}  | filter:{type:mediaSrchCtrl.optionFilter}">
-					<td ng-bind="item.titre"></td>
-					<td ng-bind="item.auteur"></td>
-					<td ng-bind="item.type"></td>
-				</tr>
+					<tr
+						ng-repeat="item in mediaSrchCtrl.catalog | filter:{titre:mediaSrchCtrl.titleFilter} | filter:{auteur:mediaSrchCtrl.authorFilter}  | filter:{type:mediaSrchCtrl.optionFilter}">
+						<td ng-bind="item.titre"></td>
+						<td ng-bind="item.auteur"></td>
+						<td ng-bind="item.type"></td>
+					</tr>
 			</table>
 		</div>
 	</div>

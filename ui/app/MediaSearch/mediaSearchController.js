@@ -9,12 +9,16 @@ angular.module('mediaSearch', [ 'ngRoute', 'services', 'ngSanitize', 'ui.bootstr
 		'mediaSearchController',
 		function($http, getUrl, $uibModal, $log, $document) {
 			var med = this;
-			getUrl.getList('http://192.168.1.93:8090/resource/media.recherche')
-					.then(function(liste) {
-						//med.catalog = liste;
-					});
+			med.httpCount=0;
+			med.catalog = [];
+			console.log("test");
+			getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog);
 
 			med.animationsEnabled = true;
+			
+			med.nextPage = function () {
+				getUrl.getList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog);
+			}
 
 			med.open = function(size, parentSelector) {
 				var parentElem = parentSelector ? angular.element($document[0]
@@ -127,4 +131,4 @@ angular.module('mediaSearch', [ 'ngRoute', 'services', 'ngSanitize', 'ui.bootstr
 			});
 		};
 	}
-});
+})
