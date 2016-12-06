@@ -1,14 +1,10 @@
 <meta charset="UTF8">
-<script>
-	$window.document.title('Fiche ' + {{MedCtrl.mediaList[MedCtrl.currentId].titre}});
-</script>
-
 <!-- Affichage information média -->
 
 <div class="container-fluid form-group">
 	<div class="row">
 		<div class="form-group col-sm-12 text-center">
-			<h2 ng-bind="'Fiche ' + MedCtrl.mediaList[MedCtrl.currentId].titre"></h2>
+			<h2 ng-bind="MedCtrl.mediaList[MedCtrl.currentId].titre"></h2>
 		</div>
 	</div>	
 	<br>
@@ -104,5 +100,5 @@
 	</table>
 </div>
 <div class="col-sm-offset-2 col-sm-8 text-right form-group" id="noPadding">
-	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Ajouter un prêt</button>
+	<button type="button" class="btn btn-default" ng-click="MedCtrl.open()">Ajouter un prêt</button>
 </div>

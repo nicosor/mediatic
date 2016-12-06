@@ -39,16 +39,3 @@ angular.module('services', ['infinite-scroll'])
 			}
 		}		
 	})
-	.factory('getMedia', function(getUrl)
-	{
-		return {
-			getMediaList : function(url)
-			{
-				return getUrl.getList(url).then(function(resp)
-				{
-					return resp;
-				});
-			}
-		}
-			
-	});

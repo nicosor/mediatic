@@ -4,10 +4,20 @@ angular
 	{
 		var connected;
 		
+		if($cookies.get('auth') != undefined)
+		{
+			console.log($cookies.get('auth'));
+			connected = true;
+			$http.defaults.headers.common['Authorization'] = 'Basic ' + $cookies.get('auth');
+			$rootScope.showMenu = true;
+		}
+		
 		return {
 			connect : function(login, password)
 			{
-				var auth = 'Basic ' + btoa(login + ' : ' + password);
+				console.error('toto');
+				var code = btoa(login + ':' + password);
+				var auth = 'Basic ' + code;
 				var config = {
 						headers : {
 							'Authorization' : auth
@@ -18,21 +28,22 @@ angular
 					{
 						connected = true;
 						$http.defaults.headers.common['Authorization'] = auth;
-						$cookies.put('isConnected', connected);
-						$rootScope.showMenu = $cookies.get('isConnected');
+						$cookies.put('auth', code);
+						$rootScope.showMenu = true;
 						$location.url('media/0');
 						return true;
 					},function()
 					{
 						connected = false;
 						$http.defaults.headers.common['Authorization'] = 'Basic';
+						$cookies.remove('auth');
+						$rootScope.showMenu = false;
 						return false;
 					});
 			},
 			
 			isConnected : function()
 			{
-				console.log(connected);
 				return connected;
 			},
 			
@@ -40,7 +51,8 @@ angular
 			{
 				connected = false;
 				$http.defaults.headers.common['Authorization'] = 'Basic';
-				$cookies.remove('isConnected');
+				$cookies.remove('auth');
+				$rootScope.showMenu = false;
 				$location.url('login');
 				return false;
 			}

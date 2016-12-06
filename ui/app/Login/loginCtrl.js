@@ -10,7 +10,7 @@ log.config(function($routeProvider)
 			});
 });
 
-log.controller('LoginController', function(loginService, $rootScope)
+log.controller('LoginController', function(loginService)
 {
 	var log = this;
 	
