@@ -14,8 +14,7 @@ import fr.dta.mediatic.user.model.User;
 @Component
 public class AuthenticationService implements UserDetailsService {
 
-	@Autowired
-	private UserDao service;
+	@Autowired private UserDao service;
 
 	@Override
 	public UserDetails loadUserByUsername(final String username) {

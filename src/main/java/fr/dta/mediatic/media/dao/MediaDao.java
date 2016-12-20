@@ -4,15 +4,24 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.dta.mediatic.loan.model.Loan;
 import fr.dta.mediatic.media.model.Media;
 import fr.dta.mediatic.utils.dao.AbstractDao;
 
+@Repository
+@Transactional
 public class MediaDao extends AbstractDao<Media> {
 
 	private static MediaDao dao;
 
 	private final String table = "Media";
+	
+	public MediaDao() {
+		super();
+	}
 	
 	public static MediaDao instance(){
 		if (dao == null)
