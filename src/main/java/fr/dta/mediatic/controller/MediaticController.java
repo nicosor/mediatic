@@ -14,7 +14,7 @@ public class MediaticController
 {
 	@Autowired private UserDao userDao;
 	@Autowired private MediaDao mediaDao;
-	@Autowired private AdherentrDao adherentDao;
+	@Autowired private AdherentDao adherentDao;
 	public static final String CURRENT_USER = "CURRENT_USER";
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
