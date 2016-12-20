@@ -38,27 +38,22 @@ public class MediaticController
 	@RequestMapping(value = "/mediaSearch", method = RequestMethod.POST)
 	public String rechercheMedia(HttpServletRequest request)
 	{
-		User user = (User) request.getSession().getAttribute(CURRENT_USER);
 		return "redirect:MediaSearch/mediaSearch.html";
 
 	}
 	@RequestMapping(value = "/adherantSearch", method = RequestMethod.POST)
 	public String rechercheAdherant(HttpServletRequest request)
 	{
-		User user = (User) request.getSession().getAttribute(CURRENT_USER);
-
 		return "redirect:AdherantSearch/adherantSearch.html";
 	}
 	@RequestMapping(value = "/media/{id}", method = RequestMethod.POST)
 	public String ficheMedia(@PathVariable int id, HttpServletRequest request)
 	{
-		User user = (User) request.getSession().getAttribute(CURRENT_USER);
-		return "redirect:Media/media.html";
+		return "redirect:Media/media.html?id=" + id;
 	}
 	@RequestMapping(value = "/adherant/{id}", method = RequestMethod.POST)
 	public String ficheAdherant(@PathVariable int id, HttpServletRequest request)
 	{
-		User user = (User) request.getSession().getAttribute(CURRENT_USER);
-		return "redirect:Adherant/adherant.html";
+		return "redirect:Adherant/adherant.html?id=" + id;
 	}
 }
