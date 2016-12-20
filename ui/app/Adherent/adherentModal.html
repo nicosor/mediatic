@@ -10,35 +10,13 @@
 	<div class="modal-body">
 		<div class="row form-group">
 			<label>Titre</label><br />
-			<input type="text" name="titre" placeholder="Titre" class="col-md-6 paddingLeft" ng-model="ctrl.mydata.titre">
+			<div class="content" ng-controller="InputDropdownController as dropdownCtrl">
+		      <input-dropdown input-placeholder="Titre" input-name="Titre" input-required="true" 
+		      selected-item="dropdownCtrl.titleObject" default-dropdown-items="dropdownCtrl.test" 
+		      filter-list-method="dropdownCtrl.filterObjectList(userInput)"
+		      item-selected-method="dropdownCtrl.itemObjectSelected(item)"></input-dropdown>
+			</div>
 		</div>
-		
-		
-<!-- 		<input-dropdown input-placeholder="Titre du média" input-name="mediaTitle" input-required="true"  -->
-<!-- 		selected-item="ctrl.mediaList" default-dropdown-items="ctrl.defaultDropdownMedia"  -->
-<!-- 		filter-list-method="ctrl.filterMediaList(userInput)" item-selected-method="ctrl.mediaSelected(item)"></input-dropdown> -->
-
-
-
-
-
-
-<div class="content" ng-controller="InputDropdownController as dropdownCtrl">
-    <form name="demoFormStrings" ng-submit="dropdownCtrl.submitFormStrings()" novalidate="">
-      <input-dropdown input-placeholder="Titre" input-name="Titre" input-required="true" selected-item="dropdownCtrl.titleString" default-dropdown-items="dropdownCtrl.test" filter-list-method="dropdownCtrl.filterStringList(userInput)"
-      item-selected-method="dropdownCtrl.itemStringSelected(item)"></input-dropdown>
-      <button type="submit" ng-disabled="demoFormStrings.$invalid">Submit</button>
-    </form>
-    <p>{{dropdownCtrl.stringMessage}}</p>
-    
-    <form name="demoFormObjects" ng-submit="dropdownCtrl.submitFormObjects()" novalidate="">
-      <input-dropdown input-placeholder="Country object" input-name="country-object" input-required="true" 
-      selected-item="dropdownCtrl.countryObject" default-dropdown-items="dropdownCtrl.defaultDropdownObjects" filter-list-method="dropdownCtrl.filterObjectList(userInput)"
-      item-selected-method="dropdownCtrl.itemObjectSelected(item)"></input-dropdown>
-      <button type="submit" ng-disabled="demoFormObjects.$invalid">Submit</button>
-    </form>
-    <p>{{dropdownCtrl.objectMessage}}</p>
-  </div>
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
   <script src="inputDropdown.js"></script>

@@ -6,9 +6,9 @@ angular.module('services', ['infinite-scroll'])
 					var temp = previous;
 					var defer = $q.defer();
 					previous = defer.promise;
-					temp.then( function() {
+					return temp.then( function() {
 						var page = (ctrl.loadedPage===undefined?0:ctrl.loadedPage+1);
-						$http.get(url, {params:{page:page}}).then(function(response) {
+						return $http.get(url, {params:{page:page}}).then(function(response) {
 							console.log(page, response.data.length, ctrl.loadedPage, response.data);
 							if(response.data.length == 0) {
 								ctrl.disableScroll= true;
