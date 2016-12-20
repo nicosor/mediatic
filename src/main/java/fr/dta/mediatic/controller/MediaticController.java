@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.dta.mediatic.adherent.dao.AdherentDao;
+import fr.dta.mediatic.media.dao.MediaDao;
 import fr.dta.mediatic.user.dao.UserDao;
 import fr.dta.mediatic.user.model.User;
 
@@ -35,20 +37,24 @@ public class MediaticController
 	public String rechercheMedia(HttpServletRequest request)
 	{
 		User user = (User) request.getSession().getAttribute(CURRENT_USER);
+		return null;
 	}
 	@RequestMapping(value = "/adherantSearch", method = RequestMethod.POST)
 	public String rechercheAdherant(HttpServletRequest request)
 	{
 		User user = (User) request.getSession().getAttribute(CURRENT_USER);
+		return null;
 	}
 	@RequestMapping(value = "/media", method = RequestMethod.POST)
 	public String ficheMedia(HttpServletRequest request)
 	{
 		User user = (User) request.getSession().getAttribute(CURRENT_USER);
+		return null;
 	}
 	@RequestMapping(value = "/adherant", method = RequestMethod.POST)
 	public String ficheAdherant(HttpServletRequest request)
 	{
 		User user = (User) request.getSession().getAttribute(CURRENT_USER);
+		return null;
 	}
 }

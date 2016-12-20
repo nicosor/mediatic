@@ -8,17 +8,17 @@ import fr.dta.mediatic.adherent.model.Adherent;
 import fr.dta.mediatic.loan.model.Loan;
 import fr.dta.mediatic.utils.dao.AbstractDao;
 
-public class AdherentDAO extends AbstractDao<Adherent> {
+public class AdherentDao extends AbstractDao<Adherent> {
 
-	private static AdherentDAO dao;
+	private static AdherentDao dao;
 	
-	private AdherentDAO() {
+	private AdherentDao() {
 		super();
 	}
 	
-	public static AdherentDAO instance() {
+	public static AdherentDao instance() {
 		if(dao==null) {
-			dao = new AdherentDAO();
+			dao = new AdherentDao();
 		}
 		return dao;
 	}

@@ -1,8 +1,11 @@
 package fr.dta.mediatic.user.dao;
 
+import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Repository;
 
 import fr.dta.mediatic.adherent.model.Adherent;
+import fr.dta.mediatic.loan.model.Loan;
 import fr.dta.mediatic.user.model.User;
 import fr.dta.mediatic.utils.dao.AbstractDao;
 
@@ -29,5 +32,11 @@ public class UserDao extends AbstractDao<User> {
 	
 	public User getById(int id){
 		return super.getById(id, "User");
+	}
+
+	public User findUserByLogin(String login) {
+		TypedQuery<User> query = getEntityManager().createQuery("FROM User WHERE login =:login", User.class);
+		query.setParameter("login", login);
+		return query.getSingleResult();
 	}
 }
