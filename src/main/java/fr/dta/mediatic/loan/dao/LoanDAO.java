@@ -6,10 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import fr.dta.mediatic.loan.model.Loan;
+import fr.dta.mediatic.utils.dao.AbstractDao;
 import fr.dta.mediatic.utils.dao.DatabaseHelper;
-import fr.dta.mediatic.utils.dao.GenericDAO;
 
-public class LoanDAO extends GenericDAO<Loan> {
+public class LoanDAO extends AbstractDao<Loan> {
 	
 	private static LoanDAO dao;
 	

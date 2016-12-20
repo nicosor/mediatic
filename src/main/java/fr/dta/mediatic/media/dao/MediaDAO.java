@@ -1,9 +1,9 @@
 package fr.dta.mediatic.media.dao;
 
 import fr.dta.mediatic.media.model.Media;
-import fr.dta.mediatic.utils.dao.GenericDAO;
+import fr.dta.mediatic.utils.dao.AbstractDao;
 
-public class MediaDAO extends GenericDAO<Media> {
+public class MediaDAO extends AbstractDao<Media> {
 
 	private static MediaDAO dao;
 	
