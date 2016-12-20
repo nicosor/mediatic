@@ -9,8 +9,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import fr.dta.mediatic.media.model.Media;
-
 @SpringBootApplication
 @ComponentScan("fr.dta.mediatic")
 @PropertySource("classpath:application.properties")
