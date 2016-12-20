@@ -8,7 +8,7 @@ public class MediaDAO extends AbstractDao<Media> {
 	private static MediaDAO dao;
 	
 	private MediaDAO() {
-		super(Media.class);
+		super();
 	}
 
 	public static MediaDAO instance(){
@@ -16,5 +16,11 @@ public class MediaDAO extends AbstractDao<Media> {
 			dao = new MediaDAO();
 		
 		return dao;
+	}
+
+	@Override
+	protected Class<Media> getEntityClass() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
