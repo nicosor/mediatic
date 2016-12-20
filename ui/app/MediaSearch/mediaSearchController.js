@@ -13,7 +13,7 @@ angular.module('mediaSearch', [ 'ngRoute', 'services', 'ngSanitize', 'ui.bootstr
 			med.catalog = [];
 			med.actualOrder=undefined;
 			med.sort = false;
-			med.loadedPage=0;
+			//med.loadedPage=0;
 			
 			med.setOrder = function (order) {
 				if(order === med.actualOrder){
@@ -24,6 +24,8 @@ angular.module('mediaSearch', [ 'ngRoute', 'services', 'ngSanitize', 'ui.bootstr
 				med.sort = true;
 				med.catalog = [];
 				med.loadedPage=0;
+				med.disableScroll=false;
+				console.log(med.actualOrder);
 				getUrl.getSortedList('http://192.168.1.93:8090/resource/media.recherche', med, med.catalog, med.actualOrder);
 				
 			}
