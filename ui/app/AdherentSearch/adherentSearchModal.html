@@ -2,49 +2,44 @@
 <!-- Modal -->
 
 <!-- Modal content-->
-<div class="modal-content col-md-10 col-md-offset-1" id="padding">
+<div class="modal-content col-md-10 col-md-offset-1" id="padding" ng-controller="ModalAdherentSearchController as mCtrl">
 	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<button type="button" class="close" ng-click="mCtrl.cancel()" data-dismiss="modal">&times;</button>
 		<h2 class="modal-title">Nouvel adhérent</h2>
 	</div>
 	<div class="modal-body">
 		<div class="row form-group">
-			<input type="text" name="Nom" placeholder="Nom" class="col-md-5">
-			<input type="text" name="Prenom" placeholder="Prenom"
-				class="col-md-5 col-xs-offset-1">
+			<input type="text" name="Nom" placeholder="Nom" class="col-md-5" ng-model="mCtrl.newAdherent.nom">
+			<input type="text" name="Prenom" placeholder="Prenom" class="col-md-5 col-xs-offset-1" ng-model="mCtrl.newAdherent.prenom">
 		</div>
 
 		<div class="row form-group">
-			<span class="col-md-4">Date de naissance :</span> <input
-				type="date" name="dateNaissance" class="col-md-4">
+			<span class="col-md-4">Date de naissance :</span> 
+			<input type="date" name="dateNaissance" class="col-md-4" ng-model="mCtrl.newAdherent.date_naissance">
 		</div>
 
 		<div class="row form-group">
-			<input type="mail" name="Email" placeholder="Mail"
-				class="col-md-11">
+			<input type="mail" name="Email" placeholder="Mail" class="col-md-11" ng-model="mCtrl.newAdherent.email"> 
+		</div> 
+
+		<div class="row form-group">
+			<input type="text" name="Adresse" placeholder="Adresse" class="col-md-11" ng-model="mCtrl.newAdherent['adresse'].ligne1">
 		</div>
 
 		<div class="row form-group">
-			<input type="text" name="Adresse" placeholder="Adresse"
-				class="col-md-11">
+			<input type="text" name="CP" placeholder="Code postal" class="col-md-4" ng-model="mCtrl.newAdherent['adresse'].codepostal"> 
+			<input type="text" name="Ville" placeholder="Ville" class="col-md-5 col-md-offset-1" ng-model="mCtrl.newAdherent['adresse'].ville">
 		</div>
 
 		<div class="row form-group">
-			<input type="text" name="CP" placeholder="Code postal"
-				class="col-md-4"> <input type="text" name="Ville"
-				placeholder="Ville" class="col-md-5 col-md-offset-1">
-		</div>
-
-		<div class="row form-group">
-			<span class="col-md-3">Date cotisation :</span> <input type="date"
-				name="DateCotisation" class="col-md-4"> <input type="text"
-				name="Montant" placeholder="Montant"
-				class="col-md-offset-1 col-md-3"> <span
-				style="font-size: 18px">&nbsp;€</span>
+			<span class="col-md-3">Date cotisation :</span> 
+			<input type="date" name="DateCotisation" class="col-md-4" ng-model="mCtrl.newAdherent['cotisation'].debut"> 
+			<input type="text" name="Montant" placeholder="Montant" class="col-md-offset-1 col-md-3"ng-model="mCtrl.newAdherent['cotisation'].montant"> 
+			<span style="font-size: 18px">&nbsp;€</span>
 		</div>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">Valider</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="mCtrl.ok()">Valider</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="mCtrl.cancel()">Annuler</button>
 	</div>
 </div>

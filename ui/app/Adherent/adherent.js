@@ -19,13 +19,6 @@ angular.module('adherent', ['ngRoute', 'services', 'ngSanitize', 'ui.bootstrap',
 			  curAdh['emprunt'].push({titre : this.mydata.titre, depart : this.mydata.date})
 			  console.log(curAdh['emprunt'])
 		  };
-	
-//		  this.test = [];
-//		  this.titre = "";
-//		  var url = 'http://192.168.1.93:8090/resource/media.recherche';
-//		  mediaDropDown.getMediaList(url, this, this.test).then (function() {
-//			  console.log("yolo", ctrl.test)   
-//		  });
 		  
 		  ctrl.ok = function () {
 			  this.curAdh = (currentAdh.getCurrentAdh())
@@ -145,7 +138,7 @@ angular.module('adherent', ['ngRoute', 'services', 'ngSanitize', 'ui.bootstrap',
 				};
 			}
 	})
-	.controller('AdherentController', function($http, $routeParams, currentAdh, getUrl) {
+	.controller('AdherentController', function($http, $routeParams, currentAdh, getUrl, currentAdh) {
 		
 		var ctrl = this;
 		
@@ -162,6 +155,6 @@ angular.module('adherent', ['ngRoute', 'services', 'ngSanitize', 'ui.bootstrap',
 					ctrl.adherentList[i]["emprunt"][j].retour = new Date(ctrl.adherentList[i]["emprunt"][j].retour);
 				};
 			};
+			currentAdh.setCurrentAdh(ctrl.adherentList[ctrl.currentId]);
 		});
-
 });
