@@ -47,7 +47,7 @@ public abstract class AbstractDao <T extends AbstractModel> {
         return query.getResultList();
 	}
 	
-	public T getById(int id, String table) {
+	public T getById(long id, String table) {
 		TypedQuery<T> query = em.createQuery("FROM " + table +" WHERE id =:id", entityClass);
 		query.setParameter("id", id);
 		return query.getSingleResult();
