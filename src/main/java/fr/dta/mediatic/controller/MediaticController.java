@@ -2,19 +2,21 @@ package fr.dta.mediatic.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.dta.mediatic.user.dao.UserDao;
+import fr.dta.mediatic.user.model.User;
+
 @RestController
 public class MediaticController
 {
 	@Autowired private UserDao userDao;
 	@Autowired private MediaDao mediaDao;
-	@Autowired private AdherentrDao adherentDao;
+	@Autowired private AdherentDao adherentDao;
 	public static final String CURRENT_USER = "CURRENT_USER";
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
