@@ -4,15 +4,20 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.dta.mediatic.adherent.model.Adherent;
 import fr.dta.mediatic.loan.model.Loan;
 import fr.dta.mediatic.utils.dao.AbstractDao;
 
+@Repository
+@Transactional
 public class AdherentDao extends AbstractDao<Adherent> {
 
 	private static AdherentDao dao;
 	
-	private AdherentDao() {
+	public AdherentDao() {
 		super();
 	}
 	
