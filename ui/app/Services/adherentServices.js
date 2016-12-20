@@ -19,7 +19,6 @@ angular.module('adherent.services',[])
 					previous = defer.promise;
 					temp.then( function() {
 						var titre = (ctrl.titre===undefined?0:ctrl.titre);
-						console.log('titre ctrl : ' , ctrl.titre);
 						$http.get(url, {params:{page:0, titre:titre}}).then(function(response) {
 							for(var i = 0; i < response.data.length; i++) {
 								liste.push(response.data[i]);

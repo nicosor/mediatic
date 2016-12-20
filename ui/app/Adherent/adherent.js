@@ -8,17 +8,11 @@ angular.module('adherent', ['ngRoute', 'services', 'ngSanitize', 'ui.bootstrap',
 		});
 	})
 
-	.controller('modalAdherentController', function ($scope, $uibModal, $log, currentAdh, mediaDropDown) {
+	.controller('modalAdherentController', function ($scope, $uibModal, $log, currentAdh, mediaDropDown, postUrl) {
 		  var ctrl = this;
 		  
 		  this.mydata = {titre : "", date : ""};
 		  
-		  ctrl.addBorrow = function (curAdh){
-			  var url = 'http://192.168.1.93:8090/resource/adherent.accession';
-			  console.log("ajout de l'emprunt : " + this.mydata.titre + this.mydata.date)
-			  curAdh['emprunt'].push({titre : this.mydata.titre, depart : this.mydata.date})
-			  console.log(curAdh['emprunt'])
-		  };
 		  
 		  ctrl.ok = function () {
 			  this.curAdh = (currentAdh.getCurrentAdh())
