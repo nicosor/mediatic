@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import fr.dta.mediatic.adherent.dao.AdherentDao;
 import fr.dta.mediatic.media.dao.MediaDao;
 import fr.dta.mediatic.user.dao.UserDao;
@@ -20,7 +21,7 @@ public class MediaticController
 	@Autowired private UserDao userDao;
 	@Autowired private MediaDao mediaDao;
 	@Autowired private AdherentDao adherentDao;
-
+	
 	public static final String CURRENT_USER = "CURRENT_USER";
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
