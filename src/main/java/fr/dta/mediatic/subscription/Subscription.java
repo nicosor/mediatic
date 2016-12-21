@@ -1,4 +1,4 @@
-package fr.dta.mediatic.subscription.model;
+package fr.dta.mediatic.subscription;
 
 import java.util.Date;
 

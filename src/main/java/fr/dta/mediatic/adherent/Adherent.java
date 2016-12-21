@@ -1,4 +1,4 @@
-package fr.dta.mediatic.adherent.model;
+package fr.dta.mediatic.adherent;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import fr.dta.mediatic.subscription.model.Subscription;
+import fr.dta.mediatic.subscription.Subscription;
 import fr.dta.mediatic.utils.model.AbstractModel;
 
 @Entity

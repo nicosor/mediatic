@@ -1,13 +1,10 @@
-package fr.dta.mediatic.user.dao;
+package fr.dta.mediatic.user;
 
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.dta.mediatic.adherent.model.Adherent;
-import fr.dta.mediatic.loan.model.Loan;
-import fr.dta.mediatic.user.model.User;
 import fr.dta.mediatic.utils.dao.AbstractDao;
 
 @Repository

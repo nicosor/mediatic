@@ -1,4 +1,4 @@
-package fr.dta.mediatic.user.model;
+package fr.dta.mediatic.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import fr.dta.mediatic.utils.model.AbstractModel;
 
 @Entity
-@Table(name = "User")
+@Table
 public class User extends AbstractModel{
 
 	@Id

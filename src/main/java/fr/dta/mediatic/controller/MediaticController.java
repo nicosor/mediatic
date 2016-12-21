@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import fr.dta.mediatic.adherent.dao.AdherentDao;
-import fr.dta.mediatic.media.dao.MediaDao;
-import fr.dta.mediatic.user.dao.UserDao;
-import fr.dta.mediatic.user.model.User;
+import fr.dta.mediatic.adherent.AdherentDao;
+import fr.dta.mediatic.media.MediaDao;
+import fr.dta.mediatic.user.User;
+import fr.dta.mediatic.user.UserDao;
 
 @RestController
 public class MediaticController
