@@ -12,6 +12,8 @@ import fr.dta.mediatic.utils.dao.AbstractDao;
 public class UserDao extends AbstractDao<User> {
 
 	private static UserDao dao;
+
+	private final String table = "User";
 	
 	public UserDao() {
 		super();
@@ -30,7 +32,7 @@ public class UserDao extends AbstractDao<User> {
 	}
 	
 	public User getById(int id){
-		return super.getById(id, "User");
+		return super.getById(id, table);
 	}
 
 	public User findUserByLogin(String login) {
