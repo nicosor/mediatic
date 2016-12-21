@@ -9,21 +9,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import fr.dta.mediatic.adherent.dao.AdherentDao;
-import fr.dta.mediatic.media.dao.MediaDao;
-import fr.dta.mediatic.user.dao.UserDao;
-import fr.dta.mediatic.user.model.User;
-import fr.dta.mediatic.user.service.UserServices;
+import fr.dta.mediatic.user.UserDao;
+import fr.dta.mediatic.user.UserServices;
 
 @RestController
 public class MediaticController
 {
 	@Autowired private UserDao userDao;
-	@Autowired private MediaDao mediaDao;
-	@Autowired private AdherentDao adherentDao;
+	//@Autowired private MediaDao mediaDao;
+	//@Autowired private AdherentDao adherentDao;
 	@Autowired private UserServices userServices;
-	
 	
 	public static final String CURRENT_USER = "CURRENT_USER";
 	
@@ -35,27 +30,22 @@ public class MediaticController
 	@RequestMapping(value = "/mediaSearch", method = RequestMethod.POST)
 	public String rechercheMedia(HttpServletRequest request)
 	{
-		User user = (User) request.getSession().getAttribute(CURRENT_USER);
 		return "redirect:MediaSearch/mediaSearch.html";
 
 	}
 	@RequestMapping(value = "/adherantSearch", method = RequestMethod.POST)
 	public String rechercheAdherant(HttpServletRequest request)
 	{
-		User user = (User) request.getSession().getAttribute(CURRENT_USER);
-
 		return "redirect:AdherantSearch/adherantSearch.html";
 	}
 	@RequestMapping(value = "/media/{id}", method = RequestMethod.POST)
 	public String ficheMedia(@PathVariable int id, HttpServletRequest request)
 	{
-		User user = (User) request.getSession().getAttribute(CURRENT_USER);
-		return "redirect:Media/media.html";
+		return "redirect:Media/media.html?id=" + id;
 	}
 	@RequestMapping(value = "/adherant/{id}", method = RequestMethod.POST)
 	public String ficheAdherant(@PathVariable int id, HttpServletRequest request)
 	{
-		User user = (User) request.getSession().getAttribute(CURRENT_USER);
-		return "redirect:Adherant/adherant.html";
+		return "redirect:Adherant/adherant.html?id=" + id;
 	}
 }

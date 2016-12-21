@@ -1,8 +1,7 @@
-package fr.dta.mediatic.loan.dao;
+package fr.dta.mediatic.loan;
 
 import java.util.List;
 
-import fr.dta.mediatic.loan.model.Loan;
 import fr.dta.mediatic.utils.dao.AbstractDao;
 
 public class LoanDAO extends AbstractDao<Loan> {

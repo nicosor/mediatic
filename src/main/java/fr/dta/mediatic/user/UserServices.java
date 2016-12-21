@@ -1,11 +1,9 @@
-package fr.dta.mediatic.user.service;
-
-
+package fr.dta.mediatic.user;
 import javax.servlet.http.HttpServletRequest;
 
-import fr.dta.mediatic.user.dao.UserDao;
-import fr.dta.mediatic.user.model.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServices {
 
 	public String checkUserCredential(String login, String password, UserDao userDao, HttpServletRequest request){

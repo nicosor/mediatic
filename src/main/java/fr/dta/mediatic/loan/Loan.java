@@ -1,4 +1,4 @@
-package fr.dta.mediatic.loan.model;
+package fr.dta.mediatic.loan;
 
 import java.util.Date;
 
@@ -9,8 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import fr.dta.mediatic.adherent.model.Adherent;
-import fr.dta.mediatic.media.model.Media;
+import fr.dta.mediatic.adherent.Adherent;
+import fr.dta.mediatic.media.Media;
 import fr.dta.mediatic.utils.model.AbstractModel;
 
 @Entity
