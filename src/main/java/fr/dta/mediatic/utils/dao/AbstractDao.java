@@ -16,7 +16,7 @@ import fr.dta.mediatic.utils.model.AbstractModel;
 
 @Repository
 @Transactional
-public abstract class AbstractDao <T extends AbstractModel> {
+public abstract class AbstractDao<T extends AbstractModel> {
 	
 	@PersistenceContext
 	EntityManager em;
@@ -54,15 +54,15 @@ public abstract class AbstractDao <T extends AbstractModel> {
 		return query.getSingleResult();
 	}
 	
-	public void delete(T b) {
-		em.remove(em.find(b.getClass(), b.getId()));
+	public void delete(T t) {
+		em.remove(em.find(t.getClass(), t.getId()));
 	}
 	
-	public void add(T b){
-		persist(b);
+	public void add(T t){
+		persist(t);
 	}
 	
-	public void update(T b){
-		em.merge(b);
+	public void update(T t){
+		em.merge(t);
 	}
 }
