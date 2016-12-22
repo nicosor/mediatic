@@ -1,5 +1,6 @@
 package fr.dta.mediatic.user;
 
+
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;

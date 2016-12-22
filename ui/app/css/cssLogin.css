@@ -30,3 +30,8 @@ input.ng-invalid.ng-dirty.ng-touched
 {
 	border-color : red;
 }
+
+body {
+    background-image: url("theme_frame.png");
+    background-color: #cccccc;
+}

@@ -2,9 +2,8 @@ package fr.dta.mediatic.loan;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,12 +22,15 @@ public class Loan extends AbstractModel {
 	@ManyToOne
 	private Adherent adherent;
 	
+	@Column(name = "loan_date")
 	@Temporal(TemporalType.DATE)
 	private Date loanDate;
 	
+	@Column(name = "back_planed_date")
 	@Temporal(TemporalType.DATE)
 	private Date backPlanedDate;
 	
+	@Column(name = "is_back")
 	private boolean isBack;
 	
 	public Loan() {
