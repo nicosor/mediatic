@@ -14,28 +14,6 @@ import fr.dta.mediatic.utils.dao.AbstractDao;
 @Transactional
 public class MediaDao extends AbstractDao<Media> {
 
-	private static MediaDao dao;
-
-	private final String table = "Media";
-	
-	public MediaDao() {
-		super();
-	}
-	
-	public static MediaDao instance(){
-		if (dao == null)
-			dao = new MediaDao();
-		return dao;
-	}	
-	
-	public List<Media> getAll() {
-        return super.getAll(table);
-	}
-	
-	public Media getById(long id) {
-		return super.getById(id, table);
-	}
-	
 	public List<Loan> getMediaLoan(Media media){
         TypedQuery<Loan> query = super.getEntityManager().createQuery("FROM loan WHERE media =:media", Loan.class);
         query.setParameter("media", media);
@@ -47,3 +25,4 @@ public class MediaDao extends AbstractDao<Media> {
 		return Media.class;
 	}
 }
+;

@@ -1,6 +1,5 @@
 package fr.dta.mediatic.user;
 
-import java.util.List;
 
 import javax.persistence.TypedQuery;
 
@@ -14,33 +13,11 @@ import fr.dta.mediatic.utils.dao.AbstractDao;
 @Transactional
 public class UserDao extends AbstractDao<User> {
 
-	private static UserDao dao;
-
-	private final String table = "User";
-	
-	public UserDao() {
-		super();
-	}
-
-	public static UserDao instance(){
-		if (dao == null)
-			dao = new UserDao();
-		return dao;
-	}
-
 	@Override
 	protected Class<User> getEntityClass() {
 		return User.class;
 	}
-	
-	public User getById(int id){
-		return super.getById(id, table);
-	}
-	
-	public List<User> getAll(){
-		return super.getAll(table);
-	}
-	
+
 	public User findUserByLogin(String login) {
 		TypedQuery<User> query = getEntityManager().createQuery("FROM User WHERE login =:login", User.class);
 		query.setParameter("login", login);

@@ -14,32 +14,9 @@ import fr.dta.mediatic.utils.dao.AbstractDao;
 @Transactional
 public class AdherentDao extends AbstractDao<Adherent> {
 
-	private static AdherentDao dao;
-	
-	public AdherentDao() {
-		super();
-	}
-	
-	public static AdherentDao instance() {
-		if(dao==null) {
-			dao = new AdherentDao();
-		}
-		return dao;
-	}
-
 	@Override
 	protected Class<Adherent> getEntityClass() {
 		return null;
-	}
-	
-	private final String table = "Adherent";
-	
-	public List<Adherent> getAll(){
-		return super.getAll(table);
-	}
-	
-	public Adherent getById(int id){
-		return super.getById(id, table);
 	}
 	
 	public List<Loan> getLoanForThisAdh(Adherent adherent){
