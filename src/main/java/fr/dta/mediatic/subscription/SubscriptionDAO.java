@@ -1,8 +1,7 @@
-package fr.dta.mediatic.subscription.dao;
+package fr.dta.mediatic.subscription;
 
 import java.util.List;
 
-import fr.dta.mediatic.subscription.model.Subscription;
 import fr.dta.mediatic.utils.dao.AbstractDao;
 
 public class SubscriptionDAO extends AbstractDao<Subscription>{

@@ -1,4 +1,4 @@
-package fr.dta.mediatic.media.model;
+package fr.dta.mediatic.media;
 
 
 import javax.persistence.Column;
@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotBlank;
 
 import fr.dta.mediatic.category.Category;
-import fr.dta.mediatic.loan.model.Loan;
+import fr.dta.mediatic.loan.Loan;
 import fr.dta.mediatic.utils.model.AbstractModel;
 
 @Entity

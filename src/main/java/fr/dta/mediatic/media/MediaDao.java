@@ -1,4 +1,4 @@
-package fr.dta.mediatic.media.dao;
+package fr.dta.mediatic.media;
 
 import java.util.List;
 
@@ -7,8 +7,7 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.dta.mediatic.loan.model.Loan;
-import fr.dta.mediatic.media.model.Media;
+import fr.dta.mediatic.loan.Loan;
 import fr.dta.mediatic.utils.dao.AbstractDao;
 
 @Repository

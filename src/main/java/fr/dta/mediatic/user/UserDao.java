@@ -1,20 +1,20 @@
-package fr.dta.mediatic.user.dao;
+package fr.dta.mediatic.user;
 
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.dta.mediatic.adherent.model.Adherent;
-import fr.dta.mediatic.loan.model.Loan;
-import fr.dta.mediatic.user.model.User;
 import fr.dta.mediatic.utils.dao.AbstractDao;
+
 
 @Repository
 @Transactional
 public class UserDao extends AbstractDao<User> {
 
 	private static UserDao dao;
+
+	private final String table = "User";
 	
 	public UserDao() {
 		super();
@@ -33,7 +33,7 @@ public class UserDao extends AbstractDao<User> {
 	}
 	
 	public User getById(int id){
-		return super.getById(id, "User");
+		return super.getById(id, table);
 	}
 
 	public User findUserByLogin(String login) {

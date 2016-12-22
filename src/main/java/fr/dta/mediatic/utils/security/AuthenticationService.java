@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
-import fr.dta.mediatic.user.dao.UserDao;
-import fr.dta.mediatic.user.model.User;
+import fr.dta.mediatic.user.User;
+import fr.dta.mediatic.user.UserDao;
 
 @Component
 public class AuthenticationService implements UserDetailsService {
