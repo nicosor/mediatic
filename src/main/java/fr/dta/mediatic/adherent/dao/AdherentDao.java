@@ -39,7 +39,7 @@ public class AdherentDao extends AbstractDao<Adherent> {
 		return super.getAll(table);
 	}
 	
-	public Adherent getById(int id){
+	public Adherent getById(Long id){
 		return super.getById(id, table);
 	}
 	
