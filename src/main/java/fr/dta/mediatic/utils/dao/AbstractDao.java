@@ -5,9 +5,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 
-//import org.h2.engine.Session;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,26 +41,29 @@ public abstract class AbstractDao<T extends AbstractModel> {
 		em.persist(entity);
 	}
 
-	public List<T> getAll(String table) {
-        TypedQuery<T> query = em.createQuery("FROM " + table, entityClass);
-        return query.getResultList();
+	@SuppressWarnings("unchecked")
+	public List<T> getAll() {
+       return em.createQuery("select t from " + entityClass.getSimpleName() + " t ").getResultList();
 	}
 	
-	public T getById(long id, String table) {
-		TypedQuery<T> query = em.createQuery("FROM " + table +" WHERE id =:id", entityClass);
-		query.setParameter("id", id);
-		return query.getSingleResult();
+	public T getById(long id) {
+		return em.find(entityClass, id);
 	}
 	
 	public void delete(T t) {
-		em.remove(em.find(t.getClass(), t.getId()));
+		em.remove(getById(t.getId()));
 	}
 	
 	public void add(T t){
 		persist(t);
 	}
 	
-	public void update(T t){
+	public void merge(T t){
 		em.merge(t);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<T> findWhere(String where){
+		  return em.createQuery("select t from " + entityClass.getSimpleName() + " t where " + where).getResultList();
 	}
 }
