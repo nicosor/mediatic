@@ -2,7 +2,6 @@ package fr.dta.mediatic.adherent;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;

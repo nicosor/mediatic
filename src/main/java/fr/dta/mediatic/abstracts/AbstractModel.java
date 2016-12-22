@@ -9,7 +9,7 @@ import javax.persistence.MappedSuperclass;
 public abstract class AbstractModel {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	public void setId(int id) {
