@@ -1,4 +1,4 @@
-package fr.dta.mediatic.utils.security;
+package fr.dta.mediatic.utils;
 
 import java.util.ArrayList;
 import java.util.List;

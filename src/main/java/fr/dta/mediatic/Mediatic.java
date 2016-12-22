@@ -7,12 +7,12 @@ import org.springframework.context.support.AbstractApplicationContext;
 
 import fr.dta.mediatic.user.User;
 import fr.dta.mediatic.user.UserDao;
-import fr.dta.mediatic.utils.configuration.SpringConfiguration;
+import fr.dta.mediatic.utils.SpringConfiguration;
 
 public class Mediatic {
 
 	public static void main(String[] args) throws ParseException {
-		//AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		/**AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");**/
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
 		UserDao usrDao = context.getBean(UserDao.class);
 		usrDao.add(new User("tutu", "toto"));

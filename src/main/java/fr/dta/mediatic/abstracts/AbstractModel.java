@@ -1,4 +1,4 @@
-package fr.dta.mediatic.utils.model;
+package fr.dta.mediatic.abstracts;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,14 +9,14 @@ import javax.persistence.MappedSuperclass;
 public abstract class AbstractModel {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 }

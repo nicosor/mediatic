@@ -1,4 +1,4 @@
-package fr.dta.mediatic.utils.configuration;
+package fr.dta.mediatic.utils;
 
 import java.util.Properties;
 

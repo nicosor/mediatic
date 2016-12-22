@@ -7,39 +7,17 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.dta.mediatic.abstracts.AbstractDao;
 import fr.dta.mediatic.loan.Loan;
-import fr.dta.mediatic.utils.dao.AbstractDao;
+import fr.dta.mediatic.subscription.Subscription;
 
 @Repository
 @Transactional
 public class AdherentDao extends AbstractDao<Adherent> {
 
-	private static AdherentDao dao;
-	
-	public AdherentDao() {
-		super();
-	}
-	
-	public static AdherentDao instance() {
-		if(dao==null) {
-			dao = new AdherentDao();
-		}
-		return dao;
-	}
-
 	@Override
 	protected Class<Adherent> getEntityClass() {
 		return null;
-	}
-	
-	private final String table = "Adherent";
-	
-	public List<Adherent> getAll(){
-		return super.getAll(table);
-	}
-	
-	public Adherent getById(int id){
-		return super.getById(id, table);
 	}
 	
 	public List<Loan> getLoanForThisAdh(Adherent adherent){
@@ -48,4 +26,17 @@ public class AdherentDao extends AbstractDao<Adherent> {
 		return query.getResultList();
 		
 	}
+	
+	public List<Subscription> getListSubscription(Adherent adherent){
+		TypedQuery<Subscription> query = super.getEntityManager().createQuery("from subscription where adherent =:adherent", Subscription.class);
+		query.setParameter("adherent", adherent);
+		return query.getResultList();
+	}
+	
+	public Object getLastSubscription(Adherent adherent){
+		TypedQuery<Subscription> query = super.getEntityManager().createQuery("from subscription where adherent =:adherent order by date_de_fin limit 1", Subscription.class);
+		query.setParameter("adherent", adherent);
+		return query.getResultList();
+	}
+	
 }

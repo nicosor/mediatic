@@ -3,40 +3,38 @@ package fr.dta.mediatic.adherent;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import fr.dta.mediatic.abstracts.AbstractModel;
 import fr.dta.mediatic.subscription.Subscription;
-import fr.dta.mediatic.utils.model.AbstractModel;
 
 @Entity
-public class Adherent extends AbstractModel{
-
+public class Adherent extends AbstractModel
+{
 	private String lastname;
 	private String firstname;
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
-	private String adresse;
+	private String address;
 	private int postalCode;
 	private String city;
 	@OneToOne
 	private Subscription subscription;
-	private String mail;
+	private String email;
 	
-	public Adherent(String lastname, String firstname, Date birthday, String adresse, int postalCode, String city,
-			Subscription subscription, String mail) {
+	public Adherent(String lastname, String firstname, Date birthday, String address, int postalCode, String city,
+			Subscription subscription, String email) {
 		super();
 		this.lastname = lastname;
 		this.firstname = firstname;
 		this.birthday = birthday;
-		this.adresse = adresse;
+		this.address = address;
 		this.postalCode = postalCode;
 		this.city = city;
 		this.subscription = subscription;
-		this.mail = mail;
+		this.email = email;
 	}
 	
 	public Adherent(){
@@ -45,11 +43,11 @@ public class Adherent extends AbstractModel{
 
 
 	public String getAdresse() {
-		return adresse;
+		return address;
 	}
 
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
+	public void setAdresse(String address) {
+		this.address = address;
 	}
 
 	public int getPostalCode() {
@@ -77,11 +75,11 @@ public class Adherent extends AbstractModel{
 	}
 
 	public String getMail() {
-		return mail;
+		return email;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setMail(String email) {
+		this.email = email;
 	}
 
 	public String getLastname() {
