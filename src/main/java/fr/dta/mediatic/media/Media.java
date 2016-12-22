@@ -30,8 +30,7 @@ public class Media extends AbstractModel{
 	@Enumerated(EnumType.STRING)
 	private Category category;
 	
-	@Column(name = "current_loan")
-	@OneToOne 
+	@OneToOne
 	private Loan currentloan;
 
 	

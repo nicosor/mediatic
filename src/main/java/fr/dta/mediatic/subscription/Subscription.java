@@ -17,7 +17,7 @@ public class Subscription extends AbstractModel {
 	
 	@Column
 	@NotNull
-	private Float price;
+	private Double price;
 	
 	@Column
 	@Temporal(TemporalType.DATE)
@@ -27,7 +27,7 @@ public class Subscription extends AbstractModel {
 	@Temporal(TemporalType.DATE)
 	private Date returnDate;
 
-	public Subscription(float price, Date subscriptionDate, Date returnDate) {
+	public Subscription(double price, Date subscriptionDate, Date returnDate) {
 		super();
 		this.price = price;
 		this.subscriptionDate = subscriptionDate;
@@ -38,11 +38,11 @@ public class Subscription extends AbstractModel {
 		
 	}
 
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

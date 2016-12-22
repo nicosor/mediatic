@@ -15,8 +15,9 @@ public class Mediatic {
 		/**AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");**/
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
 		UserDao usrDao = context.getBean(UserDao.class);
+		usrDao.truncate();
 		usrDao.add(new User("tutu", "toto"));
-		
+		System.out.println(usrDao.getAll().toString());
 		context.close();
 	}
 }

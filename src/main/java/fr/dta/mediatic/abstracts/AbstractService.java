@@ -2,8 +2,6 @@ package fr.dta.mediatic.abstracts;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class AbstractService<T extends AbstractModel, U extends AbstractDao<T>> {
 	
 	protected U dao;
