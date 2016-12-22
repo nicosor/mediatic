@@ -13,12 +13,15 @@ public class Mediatic {
 
 	public static void main(String[] args) throws ParseException {
 		/**AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");**/
-		AbstractApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
-		UserDao usrDao = context.getBean(UserDao.class);
+		//AbstractApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
+		/*UserDao usrDao = context.getBean(UserDao.class);
+		usrDao.truncate();
 		usrDao.add(new User("tutu", "toto"));
+
 		User usr = usrDao.findUserByLogin("tutu");
 		usrDao.delete(usr);
-		
-		context.close();
+
+		System.out.println(usrDao.getAll().toString());*/
+		//context.close();
 	}
 }

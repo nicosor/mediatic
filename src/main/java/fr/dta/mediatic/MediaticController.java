@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.dta.mediatic.user.UserDao;
 import fr.dta.mediatic.user.UserServices;
 
-@RestController
+//@RestController
 public class MediaticController
 {
 	@Autowired private UserDao userDao;
@@ -25,6 +25,7 @@ public class MediaticController
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String authentification(@RequestParam("login") String login, @RequestParam("password") String password, HttpServletRequest request)
 	{
+		System.out.println("tutu");
 		return userServices.checkUserCredential(login, password, userDao, request);	
 	}
 	@RequestMapping(value = "/mediaSearch", method = RequestMethod.POST)

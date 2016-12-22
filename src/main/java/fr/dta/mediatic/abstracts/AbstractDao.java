@@ -52,6 +52,11 @@ public abstract class AbstractDao<T extends AbstractModel> {
 		em.remove(getById(t.getId()));
 	}
 	
+	public void truncate() {
+		em.createQuery("delete from " + entityClass.getSimpleName() + " t ")
+			.executeUpdate();
+	}
+	
 	public void add(T t){
 		persist(t);
 	}
