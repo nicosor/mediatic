@@ -1,4 +1,4 @@
-package fr.dta.mediatic.utils.model;
+package fr.dta.mediatic.abstracts;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

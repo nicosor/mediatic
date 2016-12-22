@@ -7,7 +7,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 
 import fr.dta.mediatic.user.User;
 import fr.dta.mediatic.user.UserDao;
-import fr.dta.mediatic.utils.configuration.SpringConfiguration;
+import fr.dta.mediatic.utils.SpringConfiguration;
 
 public class Mediatic {
 

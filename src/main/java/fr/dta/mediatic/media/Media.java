@@ -10,9 +10,9 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import fr.dta.mediatic.abstracts.AbstractModel;
 import fr.dta.mediatic.category.Category;
 import fr.dta.mediatic.loan.Loan;
-import fr.dta.mediatic.utils.model.AbstractModel;
 
 @Entity
 @Table (name = "Media")

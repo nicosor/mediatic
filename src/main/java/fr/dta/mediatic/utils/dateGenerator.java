@@ -1,4 +1,4 @@
-package fr.dta.mediatic.utils.date;
+package fr.dta.mediatic.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

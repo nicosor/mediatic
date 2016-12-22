@@ -1,4 +1,4 @@
-package fr.dta.mediatic.adherent.controller;
+package fr.dta.mediatic.adherent;
 
 import javax.validation.Valid;
 
@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import fr.dta.mediatic.adherent.Adherent;
-import fr.dta.mediatic.adherent.AdherentDao;
 
 @RestController
 @RequestMapping("/ui/app/Adherent")

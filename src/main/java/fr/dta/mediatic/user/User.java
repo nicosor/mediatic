@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import fr.dta.mediatic.utils.model.AbstractModel;
+import fr.dta.mediatic.abstracts.AbstractModel;
 
 @Entity
 @Table(name = "User_")

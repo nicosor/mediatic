@@ -9,7 +9,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
-import fr.dta.mediatic.utils.model.AbstractModel;
+import fr.dta.mediatic.abstracts.AbstractModel;
 
 @Entity
 @Table(name = "subscription")

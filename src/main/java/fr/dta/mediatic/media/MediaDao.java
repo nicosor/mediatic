@@ -7,8 +7,8 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.dta.mediatic.abstracts.AbstractDao;
 import fr.dta.mediatic.loan.Loan;
-import fr.dta.mediatic.utils.dao.AbstractDao;
 
 @Repository
 @Transactional

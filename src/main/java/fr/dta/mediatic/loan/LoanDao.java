@@ -1,8 +1,8 @@
 package fr.dta.mediatic.loan;
 
-import fr.dta.mediatic.utils.dao.AbstractDao;
+import fr.dta.mediatic.abstracts.AbstractDao;
 
-public class LoanDAO extends AbstractDao<Loan> {
+public class LoanDao extends AbstractDao<Loan> {
 
 	@Override
 	protected Class<Loan> getEntityClass() {

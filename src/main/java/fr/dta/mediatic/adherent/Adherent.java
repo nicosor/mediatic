@@ -9,8 +9,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import fr.dta.mediatic.abstracts.AbstractModel;
 import fr.dta.mediatic.subscription.Subscription;
-import fr.dta.mediatic.utils.model.AbstractModel;
 
 @Entity
 public class Adherent extends AbstractModel{

@@ -1,4 +1,4 @@
-package fr.dta.mediatic.utils.dao;
+package fr.dta.mediatic.abstracts;
 
 import java.util.List;
 
@@ -9,8 +9,6 @@ import javax.persistence.PersistenceContext;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import fr.dta.mediatic.utils.model.AbstractModel;
 
 @Repository
 @Transactional

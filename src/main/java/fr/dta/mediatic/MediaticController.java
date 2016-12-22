@@ -1,4 +1,4 @@
-package fr.dta.mediatic.controller;
+package fr.dta.mediatic;
 
 import javax.servlet.http.HttpServletRequest;
 

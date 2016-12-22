@@ -1,8 +1,8 @@
 package fr.dta.mediatic.subscription;
 
-import fr.dta.mediatic.utils.dao.AbstractDao;
+import fr.dta.mediatic.abstracts.AbstractDao;
 
-public class SubscriptionDAO extends AbstractDao<Subscription>{
+public class SubscriptionDao extends AbstractDao<Subscription>{
 
 	@Override
 	protected Class<Subscription> getEntityClass() {

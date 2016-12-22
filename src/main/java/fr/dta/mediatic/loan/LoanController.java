@@ -1,4 +1,4 @@
-package fr.dta.mediatic.loan.controller;
+package fr.dta.mediatic.loan;
 
 import org.springframework.web.bind.annotation.RestController;
 

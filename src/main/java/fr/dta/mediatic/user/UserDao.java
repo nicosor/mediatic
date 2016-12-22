@@ -5,7 +5,7 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.dta.mediatic.utils.dao.AbstractDao;
+import fr.dta.mediatic.abstracts.AbstractDao;
 
 
 @Repository

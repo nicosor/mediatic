@@ -9,9 +9,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import fr.dta.mediatic.abstracts.AbstractModel;
 import fr.dta.mediatic.adherent.Adherent;
 import fr.dta.mediatic.media.Media;
-import fr.dta.mediatic.utils.model.AbstractModel;
 
 @Entity
 public class Loan extends AbstractModel {
