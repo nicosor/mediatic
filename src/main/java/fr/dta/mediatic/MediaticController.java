@@ -26,7 +26,7 @@ public class MediaticController
 	public String authentification(@RequestParam("login") String login, @RequestParam("password") String password, HttpServletRequest request)
 	{
 		System.out.println("je passe");
-		return userServices.checkUserCredential(login, password, userDao, request);
+		return userServices.checkUserCredential(login, password, userDao, request);	
 	}
 	@RequestMapping(value = "/mediaSearch", method = RequestMethod.GET)
 	public String rechercheMedia(HttpServletRequest request)
