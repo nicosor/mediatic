@@ -24,5 +24,6 @@ public class MediaDao extends AbstractDao<Media> {
 	protected Class<Media> getEntityClass() {
 		return Media.class;
 	}
+	
+	
 }
-;
