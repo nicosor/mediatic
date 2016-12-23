@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import fr.dta.mediatic.abstracts.AbstractModel;
 
 @Entity
-@Table(name = "user_")
+@Table(name="User_")
 public class User extends AbstractModel{
 
 	@Column
