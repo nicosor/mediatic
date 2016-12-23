@@ -25,26 +25,26 @@ public class MediaticController
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String authentification(@RequestParam("login") String login, @RequestParam("password") String password, HttpServletRequest request)
 	{
-		System.out.println("tutu");
+		System.out.println("je passe");
 		return userServices.checkUserCredential(login, password, userDao, request);
 	}
-	@RequestMapping(value = "/mediaSearch", method = RequestMethod.POST)
+	@RequestMapping(value = "/mediaSearch", method = RequestMethod.GET)
 	public String rechercheMedia(HttpServletRequest request)
 	{
 		return "redirect:MediaSearch/mediaSearch.html";
 
 	}
-	@RequestMapping(value = "/adherantSearch", method = RequestMethod.POST)
+	@RequestMapping(value = "/adherantSearch", method = RequestMethod.GET)
 	public String rechercheAdherant(HttpServletRequest request)
 	{
 		return "redirect:AdherantSearch/adherantSearch.html";
 	}
-	@RequestMapping(value = "/media/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/media/{id}", method = RequestMethod.GET)
 	public String ficheMedia(@PathVariable int id, HttpServletRequest request)
 	{
 		return "redirect:Media/media.html?id=" + id;
 	}
-	@RequestMapping(value = "/adherant/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/adherant/{id}", method = RequestMethod.GET)
 	public String ficheAdherant(@PathVariable int id, HttpServletRequest request)
 	{
 		return "redirect:Adherant/adherant.html?id=" + id;

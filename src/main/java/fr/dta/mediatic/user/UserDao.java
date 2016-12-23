@@ -1,6 +1,7 @@
 package fr.dta.mediatic.user;
 
 
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -21,6 +22,14 @@ public class UserDao extends AbstractDao<User> {
 	public User findUserByLogin(String login) {
 		TypedQuery<User> query = getEntityManager().createQuery("FROM User WHERE login =:login", User.class);
 		query.setParameter("login", login);
-		return query.getSingleResult();
+		try
+		{
+			User usr = query.getSingleResult();
+			return usr;
+		}
+		catch(NoResultException nre)
+		{
+			return null;
+		}
 	}
 }
