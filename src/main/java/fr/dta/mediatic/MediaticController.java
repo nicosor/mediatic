@@ -22,30 +22,69 @@ public class MediaticController
 	
 	public static final String CURRENT_USER = "CURRENT_USER";
 	
+	//login
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String getAuthentification(@RequestParam("login") String login, @RequestParam("password") String password, HttpServletRequest request)
+	{
+		System.out.println("tutu");
+		return "redirect:login";
+	}
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String authentification(@RequestParam("login") String login, @RequestParam("password") String password, HttpServletRequest request)
+	public String postAuthentification(@RequestParam("login") String login, @RequestParam("password") String password, HttpServletRequest request)
 	{
 		System.out.println("je passe");
 		return userServices.checkUserCredential(login, password, userDao, request);	
-	}
+	}	
+	//mediaSearch
 	@RequestMapping(value = "/mediaSearch", method = RequestMethod.GET)
-	public String rechercheMedia(HttpServletRequest request)
+	public String getRechercheMedia(HttpServletRequest request)
 	{
 		return "redirect:MediaSearch/mediaSearch.html";
-
 	}
+	
+	@RequestMapping(value = "/mediaSearch", method = RequestMethod.POST)
+	public String postRechercheMedia(HttpServletRequest request)
+
+	{
+		return "redirect:MediaSearch/mediaSearch.html";
+	}
+	
+	//adherentSearch
 	@RequestMapping(value = "/adherantSearch", method = RequestMethod.GET)
-	public String rechercheAdherant(HttpServletRequest request)
+	public String getRechercheAdherant(HttpServletRequest request)
 	{
 		return "redirect:AdherantSearch/adherantSearch.html";
 	}
+	
+	@RequestMapping(value = "/adherantSearch", method = RequestMethod.POST)
+	public String postRechercheAdherant(HttpServletRequest request)
+	{
+		return "redirect:AdherantSearch/adherantSearch.html";
+	}
+	
+	//media
 	@RequestMapping(value = "/media/{id}", method = RequestMethod.GET)
-	public String ficheMedia(@PathVariable int id, HttpServletRequest request)
+	public String getFicheMedia(@PathVariable int id, HttpServletRequest request)
 	{
 		return "redirect:Media/media.html?id=" + id;
 	}
+	
+	@RequestMapping(value = "/media/{id}", method = RequestMethod.POST)
+	public String postFicheMedia(@PathVariable int id, HttpServletRequest request)
+	{
+		return "redirect:Media/media.html?id=" + id;
+	}
+	
+	//adherent
 	@RequestMapping(value = "/adherant/{id}", method = RequestMethod.GET)
-	public String ficheAdherant(@PathVariable int id, HttpServletRequest request)
+	public String getFicheAdherant(@PathVariable int id, HttpServletRequest request)
+	{
+		return "redirect:Adherant/adherant.html?id=" + id;
+	}
+	
+	@RequestMapping(value = "/adherant/{id}", method = RequestMethod.POST)
+	public String postFicheAdherant(@PathVariable int id, HttpServletRequest request)
 	{
 		return "redirect:Adherant/adherant.html?id=" + id;
 	}

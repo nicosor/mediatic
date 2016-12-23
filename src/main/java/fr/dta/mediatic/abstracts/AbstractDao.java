@@ -65,6 +65,7 @@ public abstract class AbstractDao<T extends AbstractModel> {
 		em.merge(t);
 	}
 	
+
 	@SuppressWarnings("unchecked")
 	public List<T> findWhere(String where){
 		  return em.createQuery("select t from " + entityClass.getSimpleName() + " t where " + where).getResultList();
